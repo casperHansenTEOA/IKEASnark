@@ -8,11 +8,10 @@ function Stats() {
     <div className="wrapper">
       <div className="horizontal-buttons">
         <NavLink to= "/manual">
-            <Card startImage="src/assets/Manual.png" />
+          <Card startImage="src/assets/Manual.png" />
         </NavLink>
         <NavLink to="/brasida">
-        <Card startImage="src/assets/BraKnapp.png" />
-
+          <Card startImage="src/assets/BraKnapp.png" />
         </NavLink>
       </div>
       <Card startImage="src/assets/TimeInBed.png" />
