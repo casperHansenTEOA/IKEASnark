@@ -8,6 +8,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import Stats from "./routes/Stats"
 import NavFooter from "./components/NavFooter/NavFooter";
+import Profile from "./routes/Profile";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const AppLayout = () => {
@@ -32,7 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/stats",
         element: <Stats/>,
-
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       }
     ],
   },

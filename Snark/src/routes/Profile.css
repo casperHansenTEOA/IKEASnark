@@ -1,0 +1,41 @@
+.wrapper {
+    height: 40vh;
+  }
+
+/* .card{
+    height : 100%;
+}
+   */
+
+#info{
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+}
+
+#edit{
+    display:none;
+    flex-direction: column;
+    /* height: 100%; */
+}
+
+b{
+    display : inline-block;
+    margin-top: auto;
+    height: 10%;
+    position: sticky; 
+  
+}
+/* 
+.content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+} */
+
+.editcontent{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+}
+
