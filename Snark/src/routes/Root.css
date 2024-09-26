@@ -1,0 +1,20 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-align: left;
+  margin-left: 20px;
+}

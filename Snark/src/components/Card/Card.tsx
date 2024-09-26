@@ -1,17 +1,17 @@
+import "./Card.css";
+
 type Props = {
   startImage?: string;
-  title?: string;
   children?: React.ReactNode;
 };
 
-function Card({ startImage, title, children }: Props) {
-  return () => (
-    <>
-      {startImage && <img src={startImage} alt={title} />}
-      {title && <h2>{title}</h2>}
-      {children}
-    </>
+const Card = ({ startImage, children }: Props) => {
+  return (
+    <div className="card">
+      {startImage && <img className="card-image" src={startImage} alt="card" />}
+      <div className="content">{children}</div>
+    </div>
   );
-}
+};
 
 export default Card;

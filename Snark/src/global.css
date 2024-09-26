@@ -1,0 +1,27 @@
+:root {
+  --card-bg: #573A25;
+  --text-color: #ffffff;
+}
+
+body {
+  background: linear-gradient(180deg, #372C25 0%, #6D5649 53%, #9D7C69 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    --card-bg: #e3ecef;
+    --text-color: #000000;
+  }
+  body {
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
