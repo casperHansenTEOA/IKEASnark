@@ -2,9 +2,10 @@
     width: 100vw;
     display: flex;
     height: 100px;
+    flex-direction: row;
 }
 
-.nav-footer button{
+.nav-footer a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,14 +20,14 @@
 }
 
 /*hover*/
-.nav-footer button:hover{
+.nav-footer a:hover{
     background-color: #cecece;
 
 }
 
 
 
-button img{
+Link img{
     background-color: rgba(rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), 0);
     background: transparent
 }
