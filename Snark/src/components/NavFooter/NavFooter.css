@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #9D7C69;
+    background-color: #7f6455f1;
     position: relative;
     z-index: 100;
     border-radius: 0;
@@ -42,7 +42,7 @@ a svg{
 
 @media (prefers-color-scheme: light) {
     .nav-footer a{
-        background-color: #ffffff;
+        background-color: #fffffff1;
         color: #000000;
     }
     .nav-footer a:hover{
