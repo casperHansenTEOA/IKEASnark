@@ -7,6 +7,7 @@ import "./global.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import NavFooter from "./components/NavFooter/NavFooter";
+import Profile from "./routes/Profile";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const AppLayout = () => {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Root />,
       },
+      {
+        path: "/profile",
+        element: <Profile />,
+      }
     ],
   },
 ]);
