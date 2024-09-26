@@ -4,14 +4,14 @@ type Props = {
   children?: React.ReactNode;
 };
 
-function Card({ startImage, title, children }: Props) {
-  return () => (
-    <>
-      {startImage && <img src={startImage} alt={title} />}
-      {title && <h2>{title}</h2>}
+const Card = ({ startImage, title, children }: Props) => {
+  return (
+    <div className="card">
+      <img src={startImage} alt="card" />
+      <h2>{title}</h2>
       {children}
-    </>
+    </div>
   );
-}
+};
 
 export default Card;
