@@ -1,25 +1,32 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 import "./NavFooter.css"; // Assuming you have some CSS for stydivng
 
 const NavFooter: React.FC = () => {
   return (
     <footer className="nav-footer">
-      <button onClick={() => handleClick("home")}>
+      <NavLink to="/">
         <img src="src/assets/Home.svg" alt="home" />
-      </button>
-      <button onClick={() => handleClick("stats")}>
+      </NavLink>
+      <NavLink to="/stats">
         <img src="src/assets/Bar chart-2.svg" alt="stats" />
-      </button>
-      <button onClick={() => handleClick("profile")}>
+      </NavLink>
+      <NavLink to="/profile">
         <img src="src/assets/User.svg" alt="user" />
-      </button>
+      </NavLink>
     </footer>
   );
 };
 
-function handleClick(type: string) {
-  console.log(`Navigating to ${type}`);
-}
+// function handleClick(type: string) {
+  
+//     switch (type) {
+//         case "home":
+//         //redirect to home page
+        
+//         break;
+//     }
+// }
 
 export default NavFooter;

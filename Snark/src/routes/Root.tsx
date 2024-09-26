@@ -1,4 +1,5 @@
 // import { useState } from 'react'
+
 import "./Root.css";
 import Card from "@/components/Card/Card";
 
@@ -24,7 +25,9 @@ function App() {
           reiciendis numquam adipisci minima nobis quas ipsa, magni doloribus?
         </p>
       </Card>
+
     </div>
+    
   );
 }
 
