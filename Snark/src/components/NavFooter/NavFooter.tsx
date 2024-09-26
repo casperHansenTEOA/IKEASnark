@@ -1,5 +1,10 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import { FaRegChartBar } from "react-icons/fa";
+import { FaHouse } from "react-icons/fa6";
+import { MdOutlinePersonOutline } from "react-icons/md";
+
+
 
 import "./NavFooter.css"; // Assuming you have some CSS for stydivng
 
@@ -7,13 +12,13 @@ const NavFooter: React.FC = () => {
   return (
     <footer className="nav-footer">
       <NavLink to="/">
-        <img src="src/assets/Home.svg" alt="home" />
+        <FaHouse/>
       </NavLink>
       <NavLink to="/stats">
-        <img src="src/assets/Bar chart-2.svg" alt="stats" />
+        <FaRegChartBar/>
       </NavLink>
       <NavLink to="/profile">
-        <img src="src/assets/User.svg" alt="user" />
+        <MdOutlinePersonOutline/>
       </NavLink>
     </footer>
   );
