@@ -8,10 +8,19 @@ function App() {
   return (
     <div className="wrapper">
       <h1>Snark</h1>
-      <Card startImage="src/assets/bed-img.jpg" title="Card Title">
-        <p>Card content</p>
+      <Card startImage="src/assets/bed-img.jpg">
+        <h2>About the bed</h2>
+        <p>
+          The temperature-controlled smart bed adjusts automatically to your set
+          sleep temperature, ensuring optimal comfort all night long.
+        </p>
+        <p>
+          As you enter the room, the lights can trigger the bed's cooling
+          system, preparing the bed to your preferred temperature before you
+          even lie down.
+        </p>
       </Card>
-      <Card title="Card Title">
+      <Card>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis
           officiis molestias minus ex, rem quidem. Amet id sequi quisquam ullam
