@@ -2,9 +2,10 @@
     width: 100vw;
     display: flex;
     height: 100px;
+    flex-direction: row;
 }
 
-.nav-footer Link{
+.nav-footer a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +20,7 @@
 }
 
 /*hover*/
-.nav-footer Link:hover{
+.nav-footer a:hover{
     background-color: #cecece;
 
 }
