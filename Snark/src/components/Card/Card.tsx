@@ -9,7 +9,7 @@ const Card = ({ startImage, children }: Props) => {
   return (
     <div className="card">
       {startImage && <img className="card-image" src={startImage} alt="card" />}
-      <div className="content">{children}</div>
+      {children && <div className="content">{children}</div>}
     </div>
   );
 };
