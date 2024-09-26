@@ -5,7 +5,7 @@ import Card from "../components/Card/Card";
 
 import { FaArrowRight } from "react-icons/fa";
 
-function App() {
+function Root() {
   // const [count, setCount] = useState(0)
 
   return (
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
