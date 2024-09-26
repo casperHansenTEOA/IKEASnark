@@ -1,3 +1,5 @@
+import "./Card.css";
+
 type Props = {
   startImage?: string;
   title?: string;
@@ -7,7 +9,7 @@ type Props = {
 const Card = ({ startImage, title, children }: Props) => {
   return (
     <div className="card">
-      <img src={startImage} alt="card" />
+      <img className="card-image" src={startImage} alt="card" />
       <h2>{title}</h2>
       {children}
     </div>

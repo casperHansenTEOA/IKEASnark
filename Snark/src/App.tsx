@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="wrapper">
       <h1>Snark</h1>
-      <Card startImage="https://via.placeholder.com/150" title="Card Title" />
+      <Card startImage="https://picsum.photos/300/200" title="Card Title">
+        <p>Card content</p>
+      </Card>
       <div className="card"></div>
     </div>
   );
