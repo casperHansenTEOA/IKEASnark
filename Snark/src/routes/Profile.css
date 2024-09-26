@@ -3,10 +3,10 @@
     height: 40vh;
   }
 
-.card{
+/* .card{
     height : 100%;
 }
-  
+   */
 
 #info{
     display: flex;
@@ -27,12 +27,12 @@ b{
     position: sticky; 
   
 }
-
+/* 
 .content{
     display: flex;
     flex-direction: column;
     height: 100%;
-}
+} */
 
 .editcontent{
     display: flex;
