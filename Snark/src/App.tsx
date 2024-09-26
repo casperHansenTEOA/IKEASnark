@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="wrapper">
       <h1>Snark</h1>
-      <Card startImage="@/assets/bed-img.jpg" title="Card Title">
+      <Card startImage="src/assets/bed-img.jpg" title="Card Title">
         <p>Card content</p>
       </Card>
       <Card title="Card Title">
@@ -24,7 +24,6 @@ function App() {
           reiciendis numquam adipisci minima nobis quas ipsa, magni doloribus?
         </p>
       </Card>
-      <div className="card"></div>
     </div>
   );
 }
