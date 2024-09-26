@@ -1,0 +1,14 @@
+.card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding-bottom: 0.25rem;
+}
+
+.card-image {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: fill;
+  width: 100%;
+}
