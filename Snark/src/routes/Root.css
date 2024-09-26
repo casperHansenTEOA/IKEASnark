@@ -11,3 +11,10 @@
 .wrapper {
   padding: 1.5rem;
 }
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-align: left;
+  margin-left: 20px;
+}
