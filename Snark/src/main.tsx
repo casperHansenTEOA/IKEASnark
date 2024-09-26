@@ -8,7 +8,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import NavFooter from "./components/NavFooter/NavFooter";
 
-
+// eslint-disable-next-line react-refresh/only-export-components
 const AppLayout = () => {
   return (
     <>
@@ -22,16 +22,15 @@ const AppLayout = () => {
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout/>,
-    children: [{
-      path: "/",
-      element: <Root />,
-    }],
-
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Root />,
+      },
+    ],
   },
 ]);
-
-
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
