@@ -1,8 +1,10 @@
 .nav-footer{
+    margin-top: 90vh;
     width: 100vw;
     display: flex;
-    height: 100px;
+    height: 10vh;
     flex-direction: row;
+    position: fixed;
 }
 
 .nav-footer a{
@@ -10,24 +12,44 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #ffffff;
- 
+    background-color: #7f6455f1;
     position: relative;
     z-index: 100;
-    border: none;
     border-radius: 0;
+    margin-left:auto;
+    margin-right:auto;
+    border-width: 0;
+    color: #ffffff
+
+    
+}
+
+a svg{
+    width: 30px;
+    height: 30px;
     
 }
 
 /*hover*/
 .nav-footer a:hover{
-    background-color: #cecece;
+    background-color: #7D5A43;
 
 }
 
 
 
-Link img{
-    background-color: rgba(rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), 0);
-    background: transparent
+
+
+@media (prefers-color-scheme: light) {
+    .nav-footer a{
+        background-color: #fffffff1;
+        color: #000000;
+    }
+    .nav-footer a:hover{
+        background-color: #f5f5f5;
+    }
+    a img{
+        filter: invert(0);
+    }
 }
+
