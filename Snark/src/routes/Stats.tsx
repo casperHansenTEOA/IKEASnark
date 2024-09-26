@@ -1,13 +1,9 @@
-import NavFooter from "../components/NavFooter/NavFooter";
 import "./Stats.css";
-// import './App.css'
 import Card from "../components/Card/Card";
-import exp from "constants";
 import { NavLink } from "react-router-dom";
 
 
 function Stats() {
-  //const för saker?
   return (
     <div className="wrapper">
       <div className="horizontal-buttons">
