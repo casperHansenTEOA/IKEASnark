@@ -3,72 +3,80 @@ import Card from "../components/Card/Card";
 import "./Profile.css";
 
 const Profile: React.FC = () => {
-  return (
-    <div className="wrapper">
-      <h1>Profile</h1>
-      <Card>
-        <div id="info">
-          <h2>Info</h2>
-          <div className="editcontent">
-            <p>Name: John Doe</p>
-            <p>Age: 25</p>
-            <p>
-              Email:
-              <a
-                href="mailto:
-                            mail@mail.se
-                            "
-              ></a>
-            </p>
-          </div>
+    return (
+        <div className="wrapper">
+            <h1>Profile</h1>
+            <Card>
+                <h2>Info</h2>
+                <div className="inside-card">
+                    <div id="info">
 
-          <b onClick={editPage}> edit</b>
-        </div>
-        <div id="edit">
-          <h2>Edit</h2>
-          <form className="editcontent">
-            <label>
-              Name:
-              <input type="text" name="name" />
-            </label>
-            <label>
-              Age:
-              <input type="text" name="age" />
-            </label>
-            <label>
-              Email:
-              <input type="text" name="email" />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+                        <div className="editcontent">
+                            <p>Name: </p>
+                            <p>Age:</p>
+                            <p>
+                                Email:
+                                <a
+                                    href="mailto:
+                                mail@mail.se
+                                "
+                                ></a>
+                            </p>
+                            <p>   </p>
+                        </div>
 
-          <b onClick={profilePage}> cancel</b>
+                        {/* <b onClick={editPage}> edit</b> */}
+                    </div>
+                    <div id="edit" className="hidden">
+
+                        <form className="editcontent" id="editform">
+
+                            <input type="text" name="name" />
+
+
+                            <input type="text" name="age" />
+
+
+                            <input type="text" name="email" />
+
+                            <input className="submit-button" type="submit" value="Submit" />
+                        </form>
+
+                        {/* <b onClick={profilePage}> cancel</b> */}
+                    </div>
+
+                    <div className="editcontent" id="uneditable">
+                        <p>John</p>
+                        <p>25</p>
+                        <p>
+                            <a
+                                href="mailto:
+                                mail.mail.se
+                                "
+                            >
+                                mail.mail.se
+                            </a>
+                        </p>
+                        <p><b onClick={editPage}>edit</b></p>
+                    </div>
+                </div>
+            </Card>
         </div>
-      </Card>
-    </div>
-  );
+    );
 };
 
 function editPage() {
-  //Hide info and show edit form
-  const info = document.getElementById("info");
-  const edit = document.getElementById("edit");
-
-  if (info && edit) {
-    info.style.display = "none";
-    edit.style.display = "flex";
-  }
+    //Hide info and show edit form
+    const edit = document.getElementById("edit");
+    const info = document.getElementById("uneditable");
+    if (edit) {
+        edit.classList.toggle("hidden");
+    }
+    if (info) {
+        info.classList.toggle("hidden");
+    }
 }
 
-function profilePage() {
-  //Hide edit form and show info
-  const info = document.getElementById("info");
-  const edit = document.getElementById("edit");
 
-  if (info && edit) {
-    info.style.display = "flex";
-    edit.style.display = "none";
-  }
-}
 
 export default Profile;
