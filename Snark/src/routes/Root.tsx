@@ -2,15 +2,26 @@
 
 import "./Root.css";
 import Card from "../components/Card/Card";
+import Settings from "../components/Settings/Settings";
+
 
 import { FaArrowRight } from "react-icons/fa";
+import { IoSettingsOutline } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
+
+
 
 function Root() {
   // const [count, setCount] = useState(0)
 
   return (
     <div className="wrapper">
-      <h1>Snark</h1>
+      <header className = "front-page-header">
+        <h1>Snark</h1>
+        <IoSettingsOutline className="settings-button" onClick={showSettings} />
+        <AiOutlineClose className="settings-button hidden" onClick={closeSettings} />
+        </header>
+      <Settings />
       <Card startImage="src/assets/home-page-bed.png">
         <h2>About the bed</h2>
         <p>
@@ -26,6 +37,38 @@ function Root() {
       </Card>
     </div>
   );
+}
+
+function showSettings() {
+  //Redirect to settings page
+  console.log("Settings");
+  document.querySelectorAll(".nav-footer")[0].classList.toggle("hidden");
+
+  //show seetings page
+  document.querySelectorAll(".settings-overlay")[0].classList.toggle("hidden");
+  // hide button
+  document.querySelectorAll(".settings-button")[0].classList.toggle("hidden");
+  // show close button
+  document.querySelectorAll(".settings-button")[1].classList.toggle("hidden");
+
+
+}
+
+function closeSettings() {
+  //Redirect to home page
+  console.log("Settings");
+  document.querySelectorAll(".nav-footer")[0].classList.toggle("hidden");
+
+  // hide seetings page
+  document.querySelectorAll(".settings-overlay")[0].classList.toggle("hidden");
+
+  // hide button
+  document.querySelectorAll(".settings-button")[0].classList.toggle("hidden");
+  // show close button
+  document.querySelectorAll(".settings-button")[1].classList.toggle("hidden");
+
+
+
 }
 
 export default Root;
