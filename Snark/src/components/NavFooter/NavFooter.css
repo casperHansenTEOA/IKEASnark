@@ -38,7 +38,12 @@ a svg{
 
 .nav-footer a:hover{
     background-color: none;
+    color: none;
+}
 
+/* click  */
+a:active{
+    background-color: none;
 }
 
 
