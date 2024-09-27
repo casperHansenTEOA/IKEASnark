@@ -120,7 +120,7 @@ main {
     transform: rotateY(0deg);
   }
   50% {
-    transform: rotateY(18deg);
+    transform: rotateY(30deg);
   }
   100% {
     transform: rotateY(0deg);
