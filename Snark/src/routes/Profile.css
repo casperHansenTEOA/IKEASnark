@@ -14,9 +14,20 @@
 }
 
 #edit{
-    display:none;
+    display:flex;
     flex-direction: column;
     /* height: 100%; */
+    width: 50%;
+}
+
+#edit input {
+    width: 100%;
+    /* height: 40%; */
+    /* padding: 10px;
+    margin: 10px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 b{
@@ -39,3 +50,47 @@ b{
     height: 90%;
 }
 
+#editform{
+    display: flex;
+    justify-content: space-around;
+    height:27vh; 
+
+}
+
+#uneditable{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
+
+#editform label{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+
+    /* height: ; */
+}
+
+.inside-card{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.submit-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    position: sticky;
+    z-index: 0;
+    background-color: aliceblue;
+    border: none;
+}
+
+.hidden{
+    display: none !important;
+}

@@ -26,3 +26,19 @@ body {
     background-color: #f9f9f9;
   }
 }
+
+
+
+section, h1, li, img, div{
+  -moz-transition: width 1s ease-in-out, left 1.5s ease-in-out;
+  -webkit-transition: width 1s ease-in-out, left 1.5s ease-in-out;
+  -moz-transition: width 1s ease-in-out, left 1.5s ease-in-out;
+  -o-transition: width 1s ease-in-out, left 1.5s ease-in-out;
+  transition: width 1s ease-in-out, left 1.5s ease-in-out;
+
+  -moz-transition: height 1s ease-in-out, top 1.5s ease-in-out;
+  -webkit-transition: height 1s ease-in-out, top 1.5s ease-in-out;
+  -moz-transition: height 1s ease-in-out, top 1.5s ease-in-out;
+  -o-transition: height 1s ease-in-out, top 1.5s ease-in-out;
+  transition: height 1s ease-in-out, top 1.5s ease-in-out;
+}
