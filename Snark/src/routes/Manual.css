@@ -1,0 +1,33 @@
+#overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: white;
+
+}
+.horizontal-cards{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0 auto;
+    width: 85%;
+}
+#ArrowLeft{
+    margin-right: 80vw;
+    color: black;
+    background-color: white;
+    zoom: 1;
+
+
+}
+.ArrowLeftButton{
+    background-color: white;
+    margin-top: 2vw;
+    zoom: 1;
+}

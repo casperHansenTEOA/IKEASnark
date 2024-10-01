@@ -35,13 +35,20 @@ h1 {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-  z-index: 2;
+  z-index: 20000;
   position: relative;
 
 
   /* in and out animations */
   animation: spinIn 0.5s forwards;
 
+}
+
+header .settings-button{
+  margin-right: 20px;
+
+  position: fixed;
+  margin-left: 75vw;;
 }
 
 .bottom-button{
