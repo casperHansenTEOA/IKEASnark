@@ -24,18 +24,6 @@ function Root() {
         </p>
         <b> Find out more and see your statistics {<FaArrowRight />}</b>
       </Card>
-      <Card>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-        incidunt cumque eum dolorem laboriosam perspiciatis veniam explicabo,
-        nisi architecto fugiat, deleniti molestias cupiditate labore eaque
-        consequatur, dolores voluptatum corporis? Nisi.
-      </Card>
-      <Card>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-        incidunt cumque eum dolorem laboriosam perspiciatis veniam explicabo,
-        nisi architecto fugiat, deleniti molestias cupiditate labore eaque
-        consequatur, dolores voluptatum corporis? Nisi.
-      </Card>
     </div>
   );
 }
