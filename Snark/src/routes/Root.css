@@ -8,12 +8,6 @@
   flex-direction: column;
 }
 
-.wrapper {
-  gap: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
 h1 {
   font-size: 1.5rem;
   line-height: 1.1;

@@ -28,3 +28,11 @@ p, b, h2 {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1.5rem;
+  place-content: space-between;
+}

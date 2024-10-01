@@ -3,10 +3,4 @@
     flex-direction: row;
     width: 100%;
     gap: 1.5rem;
-
-}
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
 }
