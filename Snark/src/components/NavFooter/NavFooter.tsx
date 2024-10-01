@@ -8,7 +8,7 @@ import "./NavFooter.css"; // Assuming you have some CSS for stydivng
 
 const NavFooter: React.FC = () => {
   return (
-    <footer className="nav-footer">
+    <footer className="nav-footer" id="footer">
       <NavLink to="/">
         <FaHouse />
       </NavLink>
