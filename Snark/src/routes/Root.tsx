@@ -26,9 +26,13 @@ function Root() {
       </Card>
       <Card>
         <div className="horizontal">
-          <button onClick={() => setTemp(temp - 1)}>-</button>
+          <button onClick={() => setTemp(temp - 1)}>
+            <b>-</b>
+          </button>
           <p>{temp} °C</p>
-          <button onClick={() => setTemp(temp + 1)}>+</button>
+          <button onClick={() => setTemp(temp + 1)}>
+            <b>+</b>
+          </button>
         </div>
       </Card>
     </div>

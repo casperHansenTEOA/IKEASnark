@@ -34,5 +34,5 @@ p, b, h2 {
   flex-direction: row;
   width: 100%;
   gap: 1.5rem;
-  place-content: center;
+  place-content: space-between;
 }
