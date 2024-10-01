@@ -44,8 +44,19 @@ h1 {
   z-index: 2;
   position: relative;
 
+
   /* in and out animations */
   animation: spinIn 0.5s forwards;
+
+}
+
+.bottom-button{
+  margin-right: auto;
+  margin-left: auto;
+  padding : 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  z-index: 0;
 
 }
 

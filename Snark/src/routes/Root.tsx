@@ -6,7 +6,7 @@ import AddNewDevice from "../components/AddNewDevice/AddNewDevice";
 
 
 import { FaArrowRight } from "react-icons/fa";
-import { IoSettingsOutline } from "react-icons/io5";
+// import { IoSettingsOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa6";
 
@@ -19,9 +19,9 @@ function Root() {
     <div className="wrapper">
       <header className = "front-page-header">
         <h1>Snark</h1>
-        <FaPlus className="settings-button" onClick={showSettings} />
+        
         <AiOutlineClose className="settings-button hidden" onClick={closeSettings} />
-        </header>
+      </header>
       <AddNewDevice />
       <Card startImage="src/assets/home-page-bed.png">
         <h2>About the bed</h2>
@@ -36,6 +36,10 @@ function Root() {
         </p>
         <b> Find out more and see your statistics {<FaArrowRight />}</b>
       </Card>
+      <Card><FaPlus className="settings-button bottom-button" onClick={showSettings} />
+      
+      </Card>
+      
     </div>
   );
 }
