@@ -6,9 +6,10 @@ import "./global.css";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
-import Stats from "./routes/Stats"
+import Stats from "./routes/Stats";
 import NavFooter from "./components/NavFooter/NavFooter";
 import Profile from "./routes/Profile";
+import Manual from "./routes/Manual";
 import CreateLight from "./routes/CreateLight";
 import CreateBed from "./routes/CreateBed";
 
@@ -34,13 +35,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/stats",
-        element: <Stats/>,
+        element: <Stats />,
       },
       {
         path: "/profile",
         element: <Profile />,
       },
       {
+        path: "/manual",
+        element: <Manual />,
+      },
         path:"/createLight",
         element: <CreateLight />,
       },
