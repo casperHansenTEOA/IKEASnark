@@ -45,14 +45,14 @@ const router = createBrowserRouter([
         path: "/manual",
         element: <Manual />,
       },
-        path:"/createLight",
+      {
+        path: "/createLight",
         element: <CreateLight />,
       },
       {
-        path:"/createBed",
+        path: "/createBed",
         element: <CreateBed />,
-      }
-      
+      },
     ],
   },
 ]);
