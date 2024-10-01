@@ -21,7 +21,13 @@
     border-width: 0;
     color: #ffffff;
 
+    animation : slideIn 0.5s forwards;
+
     
+}
+
+.nav-footer .hidden{
+    animation: slideOut 0.5s forwards;
 }
 
 a svg{
