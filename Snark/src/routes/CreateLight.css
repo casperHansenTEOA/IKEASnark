@@ -1,0 +1,103 @@
+.light-card{
+    margin: 0.5em;
+}
+
+.expanded-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.light-form{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+    /* animation: fadeIn 0.5s forwards; */
+
+    width: 100%;
+
+    font-size: 1.2em;
+}
+
+.light-form button{
+    margin: 0.5em;
+    background-color: beige;
+
+    width: 50%;
+}
+
+.light-form select{
+    margin: 0.5em;
+    background-color: beige;
+    height : 3em;
+
+    border: none;
+    border-radius: 0.4em;
+    width: 50%;
+
+    font-size: 1.2em;
+
+}
+
+
+
+.down-arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 200;
+    animation: fadeIn 0.5s forwards;
+
+    margin-left: 70vw;
+    font-size: 2em;
+
+    animation: rotateOut 0.1s ;
+
+
+
+}
+
+.rotate{
+    /* transform: rotate(180deg); */
+    animation: rotateIn 0.1s forwards;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rotateIn
+{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes roateOut
+{
+    from{
+        transform: rotate(180deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+    
+}
