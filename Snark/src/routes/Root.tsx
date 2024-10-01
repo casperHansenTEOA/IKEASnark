@@ -4,10 +4,10 @@ import "./Root.css";
 import Card from "../components/Card/Card";
 
 import { FaArrowRight } from "react-icons/fa";
+import { useState } from "react";
 
 function Root() {
-  // const [count, setCount] = useState(0)
-
+  const [temp, setTemp] = useState(20);
   return (
     <div className="wrapper">
       <h1>Snark</h1>
@@ -24,8 +24,14 @@ function Root() {
         </p>
         <b> Find out more and see your statistics {<FaArrowRight />}</b>
       </Card>
+      <Card>
+        <div className="horizontal">
+          <button onClick={() => setTemp(temp - 1)}>-</button>
+          <p>{temp} °C</p>
+          <button onClick={() => setTemp(temp + 1)}>+</button>
+        </div>
+      </Card>
     </div>
   );
 }
-
 export default Root;
