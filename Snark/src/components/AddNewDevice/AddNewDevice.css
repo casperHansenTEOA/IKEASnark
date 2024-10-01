@@ -16,8 +16,31 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #7f6455;
   z-index: 1;
     animation: slideIn 0.1s forwards;
   
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  padding: 1em;
+  width: 80%;
+  height: 80%;
+  z-index: 2;
+  position: relative;
+  animation: slideIn 0.5s forwards;
+}
+
+.settings-content .card{
+  margin: 0.5em;
+  
+}
+
+.settings-content .card:hover{
+  background-color: #5c483ef1;
+  color: #ffffff;
 }

@@ -8,7 +8,10 @@ const AddNewDevice: React.FC = () => {
             <div className="settings-content">
                 <h2>Add a new device</h2>
                 <Card >
-                    
+                    <h3>Add a light</h3> 
+                </Card>
+                <Card>
+                    <h3>Add a bed</h3>
                 </Card>
             </div>
         </div>
