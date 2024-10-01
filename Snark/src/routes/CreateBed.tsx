@@ -68,7 +68,7 @@ export default CreateBed;
 
 function getAvalibleBeds(navigate: NavigateFunction) {
     //TODO get beds from backend    
-    return [1, 2, 3, 4, 5].map((n) => dummyBed(n, navigate));
+    return [1, 2].map((n) => dummyBed(n, navigate));
 }
 
 
