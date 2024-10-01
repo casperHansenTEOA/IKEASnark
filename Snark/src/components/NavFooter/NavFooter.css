@@ -1,8 +1,8 @@
 .nav-footer{
-    margin-top: 90vh;
+    margin-top: 92vh;
     width: 100vw;
     display: flex;
-    height: 10vh;
+    height: 8vh;
     flex-direction: row;
     position: fixed;
 }
@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #7f6455f1;
+    background-color: #9b7b6856;    
     position: relative;
     z-index: 100;
     border-radius: 0;
@@ -20,7 +20,9 @@
     margin-right:auto;
     border-width: 0;
     color: #ffffff;
+
     animation : slideIn 0.5s forwards;
+
     
 }
 
@@ -35,9 +37,19 @@ a svg{
 }
 
 /*hover*/
-.nav-footer a:hover{
-    background-color: #7D5A43;
+.nav-footer a svg:hover{
+    color: #adadad;
 
+}
+
+.nav-footer a:hover{
+    background-color: none;
+    color: none;
+}
+
+/* click  */
+a:active{
+    background-color: none;
 }
 
 
@@ -49,8 +61,8 @@ a svg{
         background-color: #fffffff1;
         color: #000000;
     }
-    .nav-footer a:hover{
-        background-color: #f5f5f5;
+    .nav-footer a svg:hover{
+        color: #919191;
     }
     a img{
         filter: invert(0);
