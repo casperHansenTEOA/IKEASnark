@@ -6,7 +6,7 @@ import "./global.css";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
-import Stats from "./routes/Stats"
+import Stats from "./routes/Stats";
 import NavFooter from "./components/NavFooter/NavFooter";
 import Profile from "./routes/Profile";
 
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/stats",
-        element: <Stats/>,
+        element: <Stats />,
       },
       {
         path: "/profile",
