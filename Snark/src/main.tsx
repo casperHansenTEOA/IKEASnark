@@ -10,6 +10,7 @@ import Stats from "./routes/Stats"
 import NavFooter from "./components/NavFooter/NavFooter";
 import Profile from "./routes/Profile";
 import CreateLight from "./routes/CreateLight";
+import CreateBed from "./routes/CreateBed";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const AppLayout = () => {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path:"/createLight",
         element: <CreateLight />,
+      },
+      {
+        path:"/createBed",
+        element: <CreateBed />,
       }
       
     ],

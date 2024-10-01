@@ -2,7 +2,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import Card from '../components/Card/Card';
-import './CreateLight.css';
+import './CreateLightAndBed.css';
 import { useEffect, useState } from "react";
 
 const CreateLight: React.FC = () => {
