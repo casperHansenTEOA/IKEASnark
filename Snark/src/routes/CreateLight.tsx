@@ -3,6 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import Card from '../components/Card/Card';
 import './CreateLight.css';
+import { useEffect, useState } from "react";
 
 const CreateLight: React.FC = () => {
     // const [lightName, setLightName] = useState('');
@@ -24,19 +25,25 @@ const CreateLight: React.FC = () => {
     //     navigate('/');
     // };
 
-    const listOfDummyLights = [
-        dummyLight(1, navigate),
-        dummyLight(2, navigate),
-        dummyLight(3, navigate),
-        dummyLight(4, navigate)
-       
-    ]
-
+    const [listOfDummyLights, setListOfDummyLights] = useState<React.ReactNode[]>([]);
+    
+    useEffect(() => {
+        const fetchDummyLights = async () => {
+            const lights = await Promise.all([
+                dummyLight(1, navigate),
+                dummyLight(2, navigate),
+                dummyLight(3, navigate),
+                dummyLight(4, navigate)
+            ]);
+            setListOfDummyLights(lights);
+        };
+    
+        fetchDummyLights();
+    }, [navigate]);
+    
     return (
         <div className="wrapper">
             <h1>Connect lights</h1>
-
-            {/* Show all the dummy lights here */}
             
             {listOfDummyLights}
             
@@ -45,24 +52,33 @@ const CreateLight: React.FC = () => {
 };
 
 
-function dummyLight(n: number, navigate: NavigateFunction) {
+async function dummyLight(n: number, navigate: NavigateFunction) {
     function setBedId(value: string): void {
         throw new Error('Function not implemented .' + value);
 
 
     }
     const arrow =  <IoIosArrowDown className={'down-arrow '+n}  onClick={() => expandCard(n)}/>
+
+    const bedOptions = (await getAvalibleBeds()).map((bed, index) => (
+        <option key={index} value={bed}>
+            {bed}
+        </option>
+    ));
     return (
         <div >
             
             <Card>
                 {arrow}
-                <h1>Light {n}</h1>
+                <h1 onClick={()=> expandCard(n)}>Light {n}</h1>
               
                 <div className="expanded-info hidden ">
                     <form onSubmit={(e) => {
                         e.stopPropagation();
                         e.preventDefault();
+                        navigateToHome(navigate)
+
+                        //TODO send data to backend
                         // Handle form submission logic here
                     }} className='light-form '>
                         <label htmlFor={`bed-select-${n}`}>Select Bed:</label>
@@ -72,11 +88,9 @@ function dummyLight(n: number, navigate: NavigateFunction) {
                             onChange={(e) => setBedId(e.target.value)}
                         >
                             <option value="">Select a bed</option>
-                            <option value="bed1">Bed 1</option>
-                            <option value="bed2">Bed 2</option>
-                            <option value="bed3">Bed 3</option>
+                            {bedOptions}
                         </select>
-                        <button type="submit" onClick={()=> navigateToHome(navigate)}>Connect</button>
+                        <button type="submit" >Connect</button>
                     </form>
 
 
@@ -87,6 +101,12 @@ function dummyLight(n: number, navigate: NavigateFunction) {
     );
 }
 export default CreateLight;
+
+async function getAvalibleBeds() {
+    //TODO get beds from backend
+
+    return ["Bed 1", "Bed 2", "Bed 3","Bed 4"];
+}
 
 function expandCard(n: number) {
     const card = document.querySelectorAll(".expanded-info")[n -1];
