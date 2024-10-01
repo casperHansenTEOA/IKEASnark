@@ -5,13 +5,24 @@ import Card from "../components/Card/Card";
 import AddNewDevice from "../components/AddNewDevice/AddNewDevice";
 
 import { FaArrowRight } from "react-icons/fa";
-import { useState } from "react";
 // import { IoSettingsOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa6";
+import BedController from "../components/BedController/BedController";
+import { fetchBeds } from "../handlers/BedHandler";
+import Bed from "../types/Bed";
+import { useEffect, useState } from "react";
 
 function Root() {
-  const [temp, setTemp] = useState(20);
+  const [beds, setBeds] = useState<Bed[]>([]);
+
+  useEffect(() => {
+    const fetchAllBeds = async () => {
+      setBeds(await fetchBeds());
+    };
+    fetchAllBeds();
+  }, []);
+
   return (
     <div className="wrapper">
       <header className="front-page-header">
@@ -36,17 +47,9 @@ function Root() {
         </p>
         <b> Find out more and see your statistics {<FaArrowRight />}</b>
       </Card>
-      <Card>
-        <div className="horizontal">
-          <button onClick={() => setTemp(temp - 1)}>
-            <b>-</b>
-          </button>
-          <p>{temp} °C</p>
-          <button onClick={() => setTemp(temp + 1)}>
-            <b>+</b>
-          </button>
-        </div>
-      </Card>
+      {beds.map((bed) => (
+        <BedController key={bed.id} bed={bed} />
+      ))}
       <Card>
         <FaPlus
           className="settings-button bottom-button"
