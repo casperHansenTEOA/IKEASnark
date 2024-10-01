@@ -19,6 +19,15 @@
     width: 85%;
 }
 #ArrowLeft{
-    position: fixed;
+    margin-right: 80vw;
+    color: black;
+    background-color: white;
+    zoom: 1;
 
+
+}
+.ArrowLeftButton{
+    background-color: white;
+    margin-top: 2vw;
+    zoom: 1;
 }
