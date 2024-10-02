@@ -12,18 +12,21 @@ const BedController = ({ bed }: Props) => {
     console.log("Bed temperature is now: ", bed.temperature);
   }, [bed.temperature]);
 
-  const [currentTemp, setTemperature] = useState(bed.temperature);
+  const [currentWantedTemp, setWantedTemperature] = useState(bed.temperature);
+
+  // this is to be used to fetch actual current temperature
+  // const [currentTemp, setTemp] = useState(bed.temperature);
 
 
   function decreaseTemperature() {
-    setTemperature(bed.temperature - 1);
+    setWantedTemperature(bed.temperature - 1);
 
-    bed.temperature= currentTemp;
+    bed.temperature= currentWantedTemp;
   }
 
   function increaseTemperature() {
-    setTemperature(bed.temperature + 1);
-    bed.temperature= currentTemp;
+    setWantedTemperature(bed.temperature + 1);
+    bed.temperature= currentWantedTemp;
 
     //TODO bed api call to actually change the temperature
   }
