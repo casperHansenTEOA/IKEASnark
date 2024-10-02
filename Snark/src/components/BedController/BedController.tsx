@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import Bed from "../../types/Bed";
 import Card from "../Card/Card";
 
@@ -11,19 +12,40 @@ const BedController = ({ bed }: Props) => {
     console.log("Bed temperature is now: ", bed.temperature);
   }, [bed.temperature]);
 
+  const [currentWantedTemp, setWantedTemperature] = useState(bed.temperature);
+
+  // this is to be used to fetch actual current temperature
+  // const [currentTemp, setTemp] = useState(bed.temperature);
+
+
+  function decreaseTemperature() {
+    setWantedTemperature(bed.temperature - 1);
+
+    bed.temperature= currentWantedTemp;
+  }
+
+  function increaseTemperature() {
+    setWantedTemperature(bed.temperature + 1);
+    bed.temperature= currentWantedTemp;
+
+    //TODO bed api call to actually change the temperature
+  }
+  
   return (
     <Card>
       <div className="horizontal">
-        <button>
+        <button onClick={decreaseTemperature}>
           <b>-</b>
         </button>
-        <p>{bed.temperature} °C</p>
-        <button>
+        <p>{currentTemp} °C</p>
+        <button onClick={increaseTemperature}>
           <b>+</b>
         </button>
       </div>
     </Card>
   );
 };
+
+
 
 export default BedController;
