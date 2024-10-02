@@ -32,7 +32,7 @@ class BedManager {
     return this.beds;
   }
 
-  public addBed(bed: Bed): void {
+  private addBed(bed: Bed): void {
     this.beds.push(bed);
   }
 
@@ -44,7 +44,7 @@ class BedManager {
       }
     });
   }
-  public removeBed(bedId: number): void {
+  public removeBedById(bedId: number): void {
     this.beds = this.beds.filter(bed => bed.id !== bedId);
   }
 

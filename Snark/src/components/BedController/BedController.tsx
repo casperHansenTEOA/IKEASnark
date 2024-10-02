@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import Bed from "../../types/Bed";
 import Card from "../Card/Card";
 
@@ -11,19 +12,36 @@ const BedController = ({ bed }: Props) => {
     console.log("Bed temperature is now: ", bed.temperature);
   }, [bed.temperature]);
 
+  const [currentTemp, setTemperature] = useState(bed.temperature);
+
+
+  function decreaseTemperature() {
+    setTemperature(bed.temperature - 1);
+
+    bed.temperature= currentTemp;
+    
+  }
+
+  function increaseTemperature() {
+    setTemperature(bed.temperature + 1);
+    bed.temperature= currentTemp;
+  }
+  
   return (
     <Card>
       <div className="horizontal">
-        <button>
+        <button onClick={decreaseTemperature}>
           <b>-</b>
         </button>
-        <p>{bed.temperature} °C</p>
-        <button>
+        <p>{currentTemp} °C</p>
+        <button onClick={increaseTemperature}>
           <b>+</b>
         </button>
       </div>
     </Card>
   );
 };
+
+
 
 export default BedController;

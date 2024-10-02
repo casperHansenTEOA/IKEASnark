@@ -18,21 +18,21 @@ const CreateBed: React.FC = () => {
   if (nav) {
     nav.classList.add("hidden");
   }
-  const [listOfDummyBeds, setListOfDummyBeds] = useState<React.ReactNode[]>([]);
+  const [listOfAvalibleBeds, setListOfDummyBeds] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
-    const fetchDummyBeds = async () => {
-      const resolvedBeds = await getAvalibleBeds(navigate);
-      setListOfDummyBeds(resolvedBeds);
+    const fetchAvalibleBeds = async () => {
+      const beds = await getAvalibleBeds(navigate);
+      setListOfDummyBeds(beds);
     };
-    fetchDummyBeds();
+    fetchAvalibleBeds();
   }, [navigate]);
 
   return (
     <div className="wrapper">
       <h1>Connect lights</h1>
 
-      {listOfDummyBeds}
+      {listOfAvalibleBeds}
     </div>
   );
 };
@@ -51,9 +51,6 @@ function dummyBed(n: number, navigate: NavigateFunction) {
               bedManager.addBedFromId(n);
 
               navigateToHome(navigate);
-
-              //TODO send data to backend
-              // Handle form submission logic here
             }}
             className="light-form "
           >
@@ -67,13 +64,11 @@ function dummyBed(n: number, navigate: NavigateFunction) {
 export default CreateBed;
 
 async function getAvalibleBeds(navigate: NavigateFunction) {
-  //TODO get beds from backend
   const connectedBeds =  bedManager.getConnectedBeds();
   
-   const beds = await fetchBeds();
+   const allBeds = await fetchBeds();
 
-
-    const allBedIds = beds.map((bed) => bed.id);
+    const allBedIds = allBeds.map((bed) => bed.id);
     const connectedBedIds = connectedBeds.map((bed) => bed.id);
 
     const unconnectedBedIds = allBedIds.filter(
