@@ -1,6 +1,7 @@
 import Bed from "../types/Bed";
 
 async function fetchBeds(): Promise<Bed[]> {
+  console.log("fetching beds");
   return [
     { id: 1, temperature: 20 },
     { id: 2, temperature: 22 },
