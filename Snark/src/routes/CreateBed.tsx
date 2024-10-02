@@ -5,6 +5,10 @@ import Card from "../components/Card/Card";
 import "./CreateLightAndBed.css";
 import { useEffect, useState } from "react";
 
+import {fetchBeds} from "../handlers/BedHandler";
+
+import { bedManager } from "../handlers/BedHandler";
+
 const CreateBed: React.FC = () => {
   // const [lightName, setLightName] = useState('');
   // const [bedId, setBedId] = useState('');
@@ -18,8 +22,7 @@ const CreateBed: React.FC = () => {
 
   useEffect(() => {
     const fetchDummyBeds = async () => {
-      const beds = await getAvalibleBeds(navigate);
-      const resolvedBeds = await Promise.all(beds);
+      const resolvedBeds = await getAvalibleBeds(navigate);
       setListOfDummyBeds(resolvedBeds);
     };
     fetchDummyBeds();
@@ -34,9 +37,9 @@ const CreateBed: React.FC = () => {
   );
 };
 
-async function dummyBed(n: number, navigate: NavigateFunction) {
+function dummyBed(n: number, navigate: NavigateFunction) {
   return (
-    <div>
+    <div key={n}>
       <Card>
         <h1>Bed {n}</h1>
 
@@ -45,6 +48,8 @@ async function dummyBed(n: number, navigate: NavigateFunction) {
             onSubmit={(e) => {
               e.stopPropagation();
               e.preventDefault();
+              bedManager.addBedFromId(n);
+
               navigateToHome(navigate);
 
               //TODO send data to backend
@@ -61,9 +66,21 @@ async function dummyBed(n: number, navigate: NavigateFunction) {
 }
 export default CreateBed;
 
-function getAvalibleBeds(navigate: NavigateFunction) {
+async function getAvalibleBeds(navigate: NavigateFunction) {
   //TODO get beds from backend
-  return [1, 2].map((n) => dummyBed(n, navigate));
+  const connectedBeds =  bedManager.getConnectedBeds();
+  
+   const beds = await fetchBeds();
+
+
+    const allBedIds = beds.map((bed) => bed.id);
+    const connectedBedIds = connectedBeds.map((bed) => bed.id);
+
+    const unconnectedBedIds = allBedIds.filter(
+      (bedId) => !connectedBedIds.includes(bedId)
+    );
+
+  return unconnectedBedIds.map((n) => dummyBed(n, navigate));
 }
 
 function navigateToHome(navigate: NavigateFunction) {

@@ -9,18 +9,21 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa6";
 import BedController from "../components/BedController/BedController";
-import { fetchBeds } from "../handlers/BedHandler";
 import Bed from "../types/Bed";
 import { useEffect, useState } from "react";
+
+import { bedManager } from "../handlers/BedHandler";
 
 function Root() {
   const [beds, setBeds] = useState<Bed[]>([]);
 
+
   useEffect(() => {
     const fetchAllBeds = async () => {
-      setBeds(await fetchBeds());
+      setBeds(bedManager.getConnectedBeds());
     };
     fetchAllBeds();
+
   }, []);
 
   return (
