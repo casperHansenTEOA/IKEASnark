@@ -19,12 +19,13 @@ const BedController = ({ bed }: Props) => {
     setTemperature(bed.temperature - 1);
 
     bed.temperature= currentTemp;
-    
   }
 
   function increaseTemperature() {
     setTemperature(bed.temperature + 1);
     bed.temperature= currentTemp;
+
+    //TODO bed api call to actually change the temperature
   }
   
   return (
