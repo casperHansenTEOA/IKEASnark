@@ -13,10 +13,10 @@ function Manual() {
       </NavLink>
 
       <div className="horizontal-cards">
-        <Card startImage="src/assets/manualVErktyg.png" />
-        <Card startImage="src/assets/manualVErktyg.png" />
-        <Card startImage="src/assets/manualVErktyg.png" />
-        <Card startImage="src/assets/manualVErktyg.png" />
+        <Card startImage="/manualVerktyg.png" />
+        <Card startImage="/manualVerktyg.png" />
+        <Card startImage="/manualVerktyg.png" />
+        <Card startImage="/manualVerktyg.png" />
       </div>
     </div>
   );

@@ -5,6 +5,10 @@ import Card from "../components/Card/Card";
 import "./CreateLightAndBed.css";
 import { useEffect, useState } from "react";
 
+import {fetchBeds} from "../handlers/BedHandler";
+
+import { bedManager } from "../handlers/BedHandler";
+
 const CreateBed: React.FC = () => {
   // const [lightName, setLightName] = useState('');
   // const [bedId, setBedId] = useState('');
@@ -14,29 +18,28 @@ const CreateBed: React.FC = () => {
   if (nav) {
     nav.classList.add("hidden");
   }
-  const [listOfDummyBeds, setListOfDummyBeds] = useState<React.ReactNode[]>([]);
+  const [listOfAvalibleBeds, setListOfDummyBeds] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
-    const fetchDummyBeds = async () => {
+    const fetchAvalibleBeds = async () => {
       const beds = await getAvalibleBeds(navigate);
-      const resolvedBeds = await Promise.all(beds);
-      setListOfDummyBeds(resolvedBeds);
+      setListOfDummyBeds(beds);
     };
-    fetchDummyBeds();
+    fetchAvalibleBeds();
   }, [navigate]);
 
   return (
     <div className="wrapper">
       <h1>Connect lights</h1>
 
-      {listOfDummyBeds}
+      {listOfAvalibleBeds}
     </div>
   );
 };
 
-async function dummyBed(n: number, navigate: NavigateFunction) {
+function dummyBed(n: number, navigate: NavigateFunction) {
   return (
-    <div>
+    <div key={n}>
       <Card>
         <h1>Bed {n}</h1>
 
@@ -45,10 +48,9 @@ async function dummyBed(n: number, navigate: NavigateFunction) {
             onSubmit={(e) => {
               e.stopPropagation();
               e.preventDefault();
-              navigateToHome(navigate);
+              bedManager.addBedFromId(n);
 
-              //TODO send data to backend
-              // Handle form submission logic here
+              navigateToHome(navigate);
             }}
             className="light-form "
           >
@@ -61,9 +63,19 @@ async function dummyBed(n: number, navigate: NavigateFunction) {
 }
 export default CreateBed;
 
-function getAvalibleBeds(navigate: NavigateFunction) {
-  //TODO get beds from backend
-  return [1, 2].map((n) => dummyBed(n, navigate));
+async function getAvalibleBeds(navigate: NavigateFunction) {
+  const connectedBeds =  bedManager.getConnectedBeds();
+  
+   const allBeds = await fetchBeds();
+
+    const allBedIds = allBeds.map((bed) => bed.id);
+    const connectedBedIds = connectedBeds.map((bed) => bed.id);
+
+    const unconnectedBedIds = allBedIds.filter(
+      (bedId) => !connectedBedIds.includes(bedId)
+    );
+
+  return unconnectedBedIds.map((n) => dummyBed(n, navigate));
 }
 
 function navigateToHome(navigate: NavigateFunction) {

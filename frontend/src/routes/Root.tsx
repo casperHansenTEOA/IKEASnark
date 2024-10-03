@@ -9,18 +9,28 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa6";
 import BedController from "../components/BedController/BedController";
-import { fetchBeds } from "../handlers/BedHandler";
+import LightController from "../components/LightController/LightController";
 import Bed from "../types/Bed";
+import Light from "../types/Light";
 import { useEffect, useState } from "react";
+
+import { bedManager } from "../handlers/BedHandler";
+import { lightManager } from "../handlers/LightHandler";
 
 function Root() {
   const [beds, setBeds] = useState<Bed[]>([]);
+  const [lights, setLights] = useState<Light[]>([]);
 
   useEffect(() => {
     const fetchAllBeds = async () => {
-      setBeds(await fetchBeds());
+      setBeds(bedManager.getConnectedBeds());
     };
     fetchAllBeds();
+
+    const fetchAllLights = async () => {
+      setLights(lightManager.getConnectedLights());
+    };
+    fetchAllLights();
   }, []);
 
   return (
@@ -34,7 +44,7 @@ function Root() {
         />
       </header>
       <AddNewDevice />
-      <Card startImage="src/assets/home-page-bed.png">
+      <Card startImage="/home-page-bed.png">
         <h2>About the bed</h2>
         <p>
           The temperature-controlled smart bed adjusts automatically to your set
@@ -50,6 +60,11 @@ function Root() {
       {beds.map((bed) => (
         <BedController key={bed.id} bed={bed} />
       ))}
+
+      {lights.map((light) => (
+        <LightController key={light.id} Light={light} />
+      ))}
+
       <Card>
         <FaPlus
           className="settings-button bottom-button"

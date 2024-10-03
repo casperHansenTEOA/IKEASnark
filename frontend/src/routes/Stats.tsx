@@ -1,12 +1,10 @@
 import "./Stats.css";
-import React, { useEffect, useRef } from "react";
 import Card from "../components/Card/Card";
 import { NavLink } from "react-router-dom";
 import Chart from "chart.js/auto";
 import LineChart from "../components/Charts/LineChart";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
-import { Data } from "./Data";
 
 Chart.register(CategoryScale);
 
@@ -129,10 +127,10 @@ function Stats() {
     <div>
       <div className="horizontal-buttons">
         <NavLink to="/manual">
-          <Card startImage="src/assets/Manual.png" />
+          <Card startImage="/Manual.png" />
         </NavLink>
         <NavLink to="/brasida">
-          <Card startImage="src/assets/BraKnapp.png" />
+          <Card startImage="/BraKnapp.png" />
         </NavLink>
       </div>
       <div className="statCards">
