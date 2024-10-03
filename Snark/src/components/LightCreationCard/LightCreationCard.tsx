@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { bedManager, fetchBeds } from "../../handlers/BedHandler";
+import { bedManager,} from "../../handlers/BedHandler";
 import { lightManager } from "../../handlers/LightHandler";
 import { IoIosArrowDown } from "react-icons/io";
 import { NavigateFunction, useNavigate } from "react-router-dom";
