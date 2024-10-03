@@ -4,3 +4,11 @@
     width: 100%;
     gap: 1.5rem;
 }
+.statCards{
+    margin-top: 8vh !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0 auto;
+    width: 85%;
+}
