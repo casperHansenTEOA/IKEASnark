@@ -72,3 +72,11 @@ b{
   z-index: 0;
   position: relative;
 }
+
+
+
+.rs-slider{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}

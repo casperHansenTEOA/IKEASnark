@@ -37,7 +37,7 @@ const BedController = ({ bed }: Props) => {
         <button onClick={decreaseTemperature}>
           <b>-</b>
         </button>
-        <p>{currentTemp} °C</p>
+        <p>{currentWantedTemp} °C</p>
         <button onClick={increaseTemperature}>
           <b>+</b>
         </button>
