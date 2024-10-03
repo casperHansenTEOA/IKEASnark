@@ -1,11 +1,11 @@
 .horizontal-buttons{
+    width: auto;
+    place-content: center;
     display: flex;
     flex-direction: row;
-    width: 100%;
     gap: 1.5rem;
 }
 .statCards{
-    margin-top: 8vh !important;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
