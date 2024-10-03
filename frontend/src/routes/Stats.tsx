@@ -124,7 +124,7 @@ function Stats() {
     ],
   });
   return (
-    <div>
+    <div className="wrapper">
       <div className="horizontal-buttons">
         <NavLink to="/manual">
           <Card startImage="/Manual.png" />
