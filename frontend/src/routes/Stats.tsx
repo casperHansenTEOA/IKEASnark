@@ -2,21 +2,20 @@ import "./Stats.css";
 import Card from "../components/Card/Card";
 import { NavLink } from "react-router-dom";
 
-
 function Stats() {
   return (
     <div className="wrapper">
       <div className="horizontal-buttons">
-        <NavLink to= "/manual">
-          <Card startImage="src/assets/Manual.png" />
+        <NavLink to="/manual">
+          <Card startImage="/Manual.png" />
         </NavLink>
         <NavLink to="/brasida">
-          <Card startImage="src/assets/BraKnapp.png" />
+          <Card startImage="/BraKnapp.png" />
         </NavLink>
       </div>
-      <Card startImage="src/assets/TimeInBed.png" />
-      <Card startImage="src/assets/Asleep.png" />
-      <Card startImage="src/assets/AsleepAfter.png" />
+      <Card startImage="/TimeInBed.png" />
+      <Card startImage="/Asleep.png" />
+      <Card startImage="/AsleepAfter.png" />
     </div>
   );
 }

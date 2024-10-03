@@ -21,7 +21,6 @@ function Root() {
   const [beds, setBeds] = useState<Bed[]>([]);
   const [lights, setLights] = useState<Light[]>([]);
 
-
   useEffect(() => {
     const fetchAllBeds = async () => {
       setBeds(bedManager.getConnectedBeds());
@@ -32,7 +31,6 @@ function Root() {
       setLights(lightManager.getConnectedLights());
     };
     fetchAllLights();
-
   }, []);
 
   return (
@@ -46,7 +44,7 @@ function Root() {
         />
       </header>
       <AddNewDevice />
-      <Card startImage="src/assets/home-page-bed.png">
+      <Card startImage="/home-page-bed.png">
         <h2>About the bed</h2>
         <p>
           The temperature-controlled smart bed adjusts automatically to your set
@@ -63,7 +61,7 @@ function Root() {
         <BedController key={bed.id} bed={bed} />
       ))}
 
-    {lights.map((light) => (
+      {lights.map((light) => (
         <LightController key={light.id} Light={light} />
       ))}
 
