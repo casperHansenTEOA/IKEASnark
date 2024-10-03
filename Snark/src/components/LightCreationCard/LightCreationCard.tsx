@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchBeds } from "../../handlers/BedHandler";
+import { bedManager, fetchBeds } from "../../handlers/BedHandler";
 import { lightManager } from "../../handlers/LightHandler";
 import { IoIosArrowDown } from "react-icons/io";
 import { NavigateFunction, useNavigate } from "react-router-dom";
@@ -14,11 +14,15 @@ function LightCreationCard({ n }: Props) {
     const navigate = useNavigate();
     const [avalibleBeds, setAvalibleBeds] = useState<Bed[]>([]);
     const [bedId, setBedId] = useState<number>();
+
+
   
     useEffect(() => {
-      fetchBeds().then((beds) => {
-        setAvalibleBeds(beds);
-      });
+        const fetchAvalibleBeds = async () => {
+            const beds = await bedManager.getConnectedBeds();
+            setAvalibleBeds(beds);
+        };
+        fetchAvalibleBeds();
   
     }
     , []);

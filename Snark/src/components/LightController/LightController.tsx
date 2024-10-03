@@ -9,7 +9,7 @@ import { RgbaColorPicker, RgbaColor} from "react-colorful";
 
 import "./LightController.css";
 import { IoIosArrowDown } from "react-icons/io";
-import { RiH4 } from "react-icons/ri";
+
 
 
 type Props = {
