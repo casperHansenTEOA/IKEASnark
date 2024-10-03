@@ -76,6 +76,12 @@ main {
   display: none !important;
 }
 
+@media screen and (min-width: 768px) {
+    body {
+      max-width: 600px;
+    }
+  }
+
 
 /* animations*/
 
