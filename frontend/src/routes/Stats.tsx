@@ -129,7 +129,7 @@ function Stats() {
         <NavLink to="/manual">
           <Card startImage="/Manual.png" />
         </NavLink>
-        <NavLink to="/brasida">
+        <NavLink to="/braknapp">
           <Card startImage="/BraKnapp.png" />
         </NavLink>
       </div>

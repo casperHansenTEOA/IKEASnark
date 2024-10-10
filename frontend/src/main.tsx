@@ -12,6 +12,7 @@ import Profile from "./routes/Profile";
 import Manual from "./routes/Manual";
 import CreateLight from "./routes/CreateLight";
 import CreateBed from "./routes/CreateBed";
+import BraKnapp from "./routes/BraKnapp";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const AppLayout = () => {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/createBed",
         element: <CreateBed />,
+      },
+      {
+        path: "/braknapp",
+        element: <BraKnapp />,
       },
     ],
   },
