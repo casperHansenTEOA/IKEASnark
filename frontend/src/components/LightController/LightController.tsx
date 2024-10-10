@@ -9,6 +9,7 @@ import { RgbaColorPicker, RgbaColor} from "react-colorful";
 
 import "./LightController.css";
 import { IoIosArrowDown } from "react-icons/io";
+import SquareCard from "../Card/SquareCard";
 
 
 
@@ -72,8 +73,8 @@ const LightController = ({ Light }: Props) => {
 
 
   return (
-    <Card>
-      <div className="horizontal">
+    <SquareCard>
+      <div >
         <h3>{Light.name}</h3>
         <IoIosArrowDown
       
@@ -93,7 +94,7 @@ const LightController = ({ Light }: Props) => {
       
       </div>
       
-      </Card>
+      </SquareCard>
   );
 };
 

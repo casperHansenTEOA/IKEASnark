@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Bed from "../../types/Bed";
 import Card from "../Card/Card";
+import SquareCard from "../Card/SquareCard";
 
 type Props = {
   bed: Bed;
@@ -32,17 +33,19 @@ const BedController = ({ bed }: Props) => {
   }
   
   return (
-    <Card>
+    <SquareCard>
       <div className="horizontal">
+        
+        <p>{currentWantedTemp} °C</p>
+        <button onClick={increaseTemperature}>
+          
+          <b>+</b>
+        </button>
         <button onClick={decreaseTemperature}>
           <b>-</b>
         </button>
-        <p>{currentWantedTemp} °C</p>
-        <button onClick={increaseTemperature}>
-          <b>+</b>
-        </button>
       </div>
-    </Card>
+    </SquareCard>
   );
 };
 

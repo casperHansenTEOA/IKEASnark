@@ -39,3 +39,10 @@ p, b, h2 {
   gap: 1.5rem;
   place-content: space-between;
 }
+
+.square{
+  width: 100%;
+  /* height: 100%; */
+  border-radius: 20px;
+  background-color: var(--card-bg);
+}
