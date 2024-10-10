@@ -53,7 +53,9 @@ const Profile: React.FC = () => {
               </a>
             </p>
             <p>
-              <b onClick={editPage}>edit</b>
+              <b className="edit-page" onClick={editPage}>
+                edit
+              </b>
             </p>
           </div>
         </div>
