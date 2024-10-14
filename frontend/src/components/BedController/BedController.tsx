@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Bed from "../../types/Bed";
-import Card from "../Card/Card";
+
 import SquareCard from "../Card/SquareCard";
+import { IoBedOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+
 
 type Props = {
   bed: Bed;
@@ -12,6 +15,8 @@ const BedController = ({ bed }: Props) => {
   useEffect(() => {
     console.log("Bed temperature is now: ", bed.temperature);
   }, [bed.temperature]);
+
+  const nav = useNavigate();
 
   const [currentWantedTemp, setWantedTemperature] = useState(bed.temperature);
 
@@ -33,22 +38,28 @@ const BedController = ({ bed }: Props) => {
   }
   
   return (
-    <SquareCard>
-      <div className="horizontal">
-        
-        <p>{currentWantedTemp} °C</p>
-        <button onClick={increaseTemperature}>
+    <SquareCard >
+      <div className="clickable" onClick={()=>{nav("/beddetails", {state: {bed:bed}})}}>
+        {/* <button onClick={increaseTemperature}>
           
           <b>+</b>
-        </button>
-        <button onClick={decreaseTemperature}>
+        </button> */}
+        <IoBedOutline size={30}  />
+        <h3>{currentWantedTemp} °C</h3>
+        
+        {/* <button onClick={decreaseTemperature}>
           <b>-</b>
-        </button>
+        </button> */}
       </div>
     </SquareCard>
+
+
+
   );
 };
 
+// select the square card and add an event listener to it
+// when clicked, it should redirect to the bed details page
 
 
 export default BedController;
