@@ -70,15 +70,15 @@ const BedDetails = () => {
                         orientation='vertical'
                         style={{ WebkitAppearance: 'slider-vertical' }}
                         />
-                        <input className='slider-label' type="text" defaultValue={times[i]} onChange={(e)=>{
-                            times[i] = e.target.value;
-                            setTimes(times);
-                        }}/>
-                       
-               
-                            
-                            
-               
+  
+                                <input className='slider-label' type="time" defaultValue={times[i]} onChange={(e)=>{
+                                        times[i] = e.target.value;
+                                        setTimes(times);
+                                        console.log(times);
+                                    }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))"/>
+                        
+                        
+
                 </div>
                 
         
