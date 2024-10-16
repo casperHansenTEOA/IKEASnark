@@ -1,0 +1,10 @@
+.schedule-sliders{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    height: 30vh;
+}
+
+.slide-container{
+    margin: 4px;
+}
