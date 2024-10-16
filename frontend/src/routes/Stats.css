@@ -1,3 +1,10 @@
+:root{
+    --point-color: #00FFFF;
+    --line-color: #FFFF00;
+    --bar-color: #FF7F50;
+
+}
+
 .horizontal-buttons{
     width: auto;
     place-content: center;
@@ -12,3 +19,26 @@
     margin: 0 auto;
     width: 85%;
 }
+
+@media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      --card-bg: #e3ecef;
+      --text-color: #000000;
+      
+      --point-color: #00008B;
+      --line-color: #DC143C;
+      --bar-color: #228B22;
+    }
+    body {
+      background: none;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+    
+  }

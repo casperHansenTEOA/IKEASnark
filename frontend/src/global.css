@@ -19,7 +19,7 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :statCards {
     color: #213547;
     --card-bg: #e3ecef;
     --text-color: #000000;
