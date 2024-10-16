@@ -96,6 +96,7 @@ function Stats() {
       {
         label: "Time in bed",
         data: [6, 10, 8, 3, 7, 5, 9],
+        pointBorderColor: rootStyles.getPropertyValue("--point-color").trim(), //Color of pointsborder
         backgroundColor: rootStyles.getPropertyValue("--point-color").trim(), //Infill of points
         borderColor: rootStyles.getPropertyValue("--line-color").trim(), // Line color
         borderWidth: 1,

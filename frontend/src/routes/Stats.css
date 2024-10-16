@@ -1,7 +1,7 @@
 :root{
-    --point-color: #00FFFF;
-    --line-color: #FFFF00;
-    --bar-color: #FF7F50;
+    --point-color: #98FF98;
+    --line-color: #FFD700;
+    --bar-color: #87CEEB;
 
 }
 
@@ -25,10 +25,10 @@
       color: #213547;
       --card-bg: #e3ecef;
       --text-color: #000000;
-      
-      --point-color: #00008B;
-      --line-color: #DC143C;
-      --bar-color: #228B22;
+
+      --point-color: #7851A9;
+      --line-color: #FF6F61;
+      --bar-color: #008080;
     }
     body {
       background: none;
