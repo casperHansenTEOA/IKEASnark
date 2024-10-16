@@ -33,7 +33,7 @@ const BedDetails = () => {
 
 
     function  addSchedule(nt)  {
-        console.log(nt);
+     
 
         // console.log(times);
         const  internalTimes = [...times, nt].sort();
@@ -42,6 +42,7 @@ const BedDetails = () => {
         setSliders([]);
         setSliders(slidersInit(internalTimes));
         setTimes(internalTimes);
+        console.log(times);
 
     };
 
@@ -69,13 +70,15 @@ const BedDetails = () => {
                         orientation='vertical'
                         style={{ WebkitAppearance: 'slider-vertical' }}
                         />
-                        <h3>
-                            {
-                
-                            times[i]
+                        <input className='slider-label' type="text" defaultValue={times[i]} onChange={(e)=>{
+                            times[i] = e.target.value;
+                            setTimes(times);
+                        }}/>
+                       
+               
                             
-                            }
-                        </h3>
+                            
+               
                 </div>
                 
         
