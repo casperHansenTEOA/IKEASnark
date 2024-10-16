@@ -37,9 +37,11 @@ const BedDetails = () => {
         await setTimes([...times,nt]);
         console.log(times)
         // setSliders([]);
-        // setSliders(slidersInit(internalTimes));
+        // setSliders(slidersInit(internalTimes));  
 
- 
+        
+
+        sortDocumentAfterClassName();
     };
 
 
@@ -88,7 +90,7 @@ const BedDetails = () => {
 
     function createSliderFromTime(time:string, i:number): JSX.Element {
         return (
-        <div className="slide-container">
+        <div className={"slide-container "+time}>
         <Slider
             aria-label="Temperature"
             defaultValue={0}
@@ -103,11 +105,15 @@ const BedDetails = () => {
             style={{ WebkitAppearance: 'slider-vertical' }}
             />
 
-                    <input className='slider-label' type="time" defaultValue={times[i   ]} onChange={(e)=>{
-                            times[i] = e.target.value;
-                            setTimes(times);
-                            console.log(times);
-                        }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))"/>
+            <input className='slider-label' type="time" defaultValue={times[i   ]} onChange={(e)=>{
+                    times[i] = e.target.value;
+                    document.querySelectorAll('.schedule-sliders')[0].children[i].classList.remove(time);
+                    document.querySelectorAll('.schedule-sliders')[0].children[i].classList.add( e.target.value);
+                    
+                    setTimes(times);
+                    console.log(times);
+                    sortDocumentAfterClassName();
+                }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))"/>
             
             
 
@@ -153,3 +159,11 @@ const BedDetails = () => {
 };
 
 export default BedDetails;
+
+function sortDocumentAfterClassName() {
+    const list = document.querySelectorAll('.schedule-sliders')[0];
+
+    [...list.children]
+        .sort((a, b) => a.classList[1] > b.classList[1] ? 1 : -1)
+        .forEach(node => list.appendChild(node));
+}
