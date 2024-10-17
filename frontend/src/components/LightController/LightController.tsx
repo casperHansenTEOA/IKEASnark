@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import Light from "../../types/Light";
-import Card from "../Card/Card";
 
 import { lightManager } from "../../handlers/LightHandler";
 

@@ -14,6 +14,8 @@ type Props = {
 const BedController = ({ bed }: Props) => {
   useEffect(() => {
     console.log("Bed temperature is now: ", bed.temperature);
+
+    setWantedTemperature(bed.temperature); // <- api call to get the actual temperature here
   }, [bed.temperature]);
 
   const nav = useNavigate();
