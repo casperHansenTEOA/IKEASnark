@@ -3,7 +3,7 @@ import Bed from '../types/Bed';
 import './BedDetails.css';
 import { useLocation } from 'react-router-dom';
 import { Slider } from '@mui/material';
-
+import { bedManager } from '../handlers/BedHandler';
 // interface Schedule {
 //     time: string;
 //     temperature: number;
@@ -18,18 +18,19 @@ const BedDetails = () => {
     const [newTime, setNewTime] = useState<string>('');
 
     // const [sliders, setSliders] = useState<JSX.Element[]>([]);
-    const [times, setTimes] = useState<string[]>([]);
+    const [times, setTimes] = useState<Set<string>>(new Set([]));
 
     useEffect(() => {
         //write all the keys of the schedule object to the times array
         console.log(bed.schedule);
-        setTimes(Object.keys(bed.schedule));
+        setTimes(new Set(Object.keys(bed.schedule)));
     }, []);
 
 
 
 
     const handleTemperatureChange = (delta: number) => {
+        //save temps to the controller here as well
         setTemperature(prevTemp => prevTemp + delta);
         bed.temperature = temperature + delta;
     };
@@ -39,8 +40,9 @@ const BedDetails = () => {
      
         // times.sort();
         console.log(nt)
-        if (times.length < 6) {
-            await setTimes([...times,nt]);
+        if (times.size< 6) {
+            await setTimes(new Set([...times.values(),nt]));
+            bedManager.addEntryToScheduleFromId(bed.id, nt, 0);
         }else{
             alert('Max 6 schedules allowed');
         }
@@ -70,8 +72,10 @@ const BedDetails = () => {
             style={{ WebkitAppearance: 'slider-vertical' }}
             />
 
-            <input className='slider-label' type="time" defaultValue={times[i   ]} onChange={(e)=>{
-                    times[i] = e.target.value;
+            <input className='slider-label' type="time" defaultValue={Array.from(times)[i]} onChange={(e)=>{
+                    const timesArray = Array.from(times);
+                    timesArray[i] = e.target.value;
+                    setTimes(new Set(timesArray));
                     document.querySelectorAll('.schedule-sliders')[0].children[i].classList.remove(time);
                     document.querySelectorAll('.schedule-sliders')[0].children[i].classList.add( e.target.value);
                     
@@ -115,7 +119,7 @@ const BedDetails = () => {
         
                <div className="schedule-sliders">
          
-                {times.map((time, index) => {return createSliderFromTime(time, index)})}
+                {Array.from(times).map((time, index) => {return createSliderFromTime(time, index)})}
                     
             </div>
             </div>

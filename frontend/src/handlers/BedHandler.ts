@@ -37,6 +37,24 @@ class BedManager {
     this.beds.push(bed);
   }
 
+  public  addEntryToScheduleFromId(bedId: number, time: string, temperature: number) {
+    const bed = this.beds.find(bed => bed.id === bedId);
+    if (bed) {
+      console.log("Adding entry to schedule");
+      bed.schedule = {...bed.schedule, [time]: temperature};
+    }
+
+  }
+public getScheduleFromId(bedId: number): string[] {
+  const bed = this.beds.find(bed => bed.id === bedId);
+  if (bed) {
+    return Object.keys(bed.schedule);
+  }
+  return [];
+
+}
+
+
   public addBedFromId(bedId: number) {
     fetchBeds().then((beds) => {
       const bed = beds.find((bed) => bed.id === bedId);
