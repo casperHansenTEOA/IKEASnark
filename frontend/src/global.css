@@ -1,5 +1,6 @@
 :root {
   --card-bg: #573a25;
+  --card-border: #909090;
   --text-color: #ffffff;
 }
 
@@ -22,6 +23,7 @@ body {
   :root {
     color: #213547;
     --card-bg: #e3ecef;
+    --card-border: #909090;
     --text-color: #000000;
   }
   body {
