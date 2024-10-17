@@ -1,9 +1,9 @@
 :root{
-    --point-color: #98FF98;
-    --line-color: #FFD700;
-    --bar-color: #87CEEB;
-
-}
+    --point-color: #B9D8E2;
+    --line-color: #B9D8E2;
+    --bar-color: #6193A4;
+} 
+/* This is dark mode  */
 
 .horizontal-buttons{
     width: auto;

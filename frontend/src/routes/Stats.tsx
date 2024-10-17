@@ -6,6 +6,8 @@ import LineChart from "../components/Charts/LineChart";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
 
+// import MixedChart from "../components/Charts/MixedChart";
+
 Chart.register(CategoryScale);
 
 function Stats() {
@@ -82,7 +84,8 @@ function Stats() {
       },
     ],
   });
-  const [chartData3] = useState({
+
+  const chartData3 = {
     labels: [
       "Monday",
       "Tuesday",
@@ -94,6 +97,13 @@ function Stats() {
     ],
     datasets: [
       {
+        type: "bar",
+        label: "Average temperature",
+        data: [18, 27, 5, 2, 18, 20, 9],
+        backgroundColor: rootStyles.getPropertyValue("--bar-color").trim(),
+      },
+      {
+        type: "line",
         label: "Time in bed",
         data: [6, 10, 8, 3, 7, 5, 9],
         pointBorderColor: rootStyles.getPropertyValue("--point-color").trim(), //Color of pointsborder
@@ -103,14 +113,8 @@ function Stats() {
         tension: 0.4, // For Line chart smoothing
         fill: false, // For Line chart fill
       },
-      {
-        type: "bar",
-        label: "Average temperature",
-        data: [18, 27, 5, 2, 18, 20, 9],
-        backgroundColor: rootStyles.getPropertyValue("--bar-color").trim(),
-      },
     ],
-  });
+  };
   return (
     <div className="wrapper">
       <div className="horizontal-buttons">
