@@ -66,11 +66,12 @@ const BedDetails = () => {
         }
     }
     function createSliderFromTime(time:string, i:number): JSX.Element {
+        const defvalue = bed.schedule[Array.from(times)[i]];
         return (
         <div className={"slide-container "+time}>
         <Slider
             aria-label="Temperature"
-            defaultValue={0}
+            defaultValue={defvalue}
             getAriaValueText={(value) => `${value}°C`}
             valueLabelDisplay="auto"
             shiftStep={30}
