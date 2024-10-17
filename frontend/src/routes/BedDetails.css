@@ -1,0 +1,37 @@
+.schedule-sliders{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    height: 30vh;
+}
+
+.slide-container{
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-label{
+    margin-top: 1em;
+    padding: 0;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #ffffff;
+    width: 11.9vw;
+    background-color: #00000000;
+    position: relative;
+    border: none;
+}
+
+.label-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider-label::-webkit-calendar-picker-indicator {
+
+    display: none;
+    
+    }

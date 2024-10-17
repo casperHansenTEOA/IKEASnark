@@ -22,10 +22,12 @@
   position: relative !important ;
   z-index:0!important;
   animation: fadeIn 0.5s forwards;
-  margin-left: 0 !important;
+
   font-size: 2em;
   animation: rotateOut 0.1s;
   margin-bottom: auto;
     margin-top: auto;
+    margin-left: auto !important;
+    margin-right: auto;
 }
 

@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { bedManager } from "../handlers/BedHandler";
 import { lightManager } from "../handlers/LightHandler";
 
+
 function Root() {
   const [beds, setBeds] = useState<Bed[]>([]);
   const [lights, setLights] = useState<Light[]>([]);
@@ -57,13 +58,17 @@ function Root() {
         </p>
         <b> Find out more and see your statistics {<FaArrowRight />}</b>
       </Card>
-      {beds.map((bed) => (
-        <BedController key={bed.id} bed={bed} />
-      ))}
 
-      {lights.map((light) => (
-        <LightController key={light.id} Light={light} />
-      ))}
+      <div className="itemsWrapper">
+        {beds.map((bed) => (
+          <BedController key={bed.id} bed={bed} />
+        ))}
+
+        {lights.map((light) => (
+          <LightController key={light.id} Light={light} />
+        ))}
+      </div>
+      
 
       <Card>
         <FaPlus

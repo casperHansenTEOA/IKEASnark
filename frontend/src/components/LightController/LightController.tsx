@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import Light from "../../types/Light";
-import Card from "../Card/Card";
 
 import { lightManager } from "../../handlers/LightHandler";
 
@@ -9,6 +8,7 @@ import { RgbaColorPicker, RgbaColor} from "react-colorful";
 
 import "./LightController.css";
 import { IoIosArrowDown } from "react-icons/io";
+import SquareCard from "../Card/SquareCard";
 
 
 
@@ -72,8 +72,8 @@ const LightController = ({ Light }: Props) => {
 
 
   return (
-    <Card>
-      <div className="horizontal">
+    <SquareCard>
+      <div >
         <h3>{Light.name}</h3>
         <IoIosArrowDown
       
@@ -93,7 +93,7 @@ const LightController = ({ Light }: Props) => {
       
       </div>
       
-      </Card>
+      </SquareCard>
   );
 };
 
