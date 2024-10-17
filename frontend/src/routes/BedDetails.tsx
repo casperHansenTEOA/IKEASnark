@@ -55,6 +55,15 @@ const BedDetails = () => {
         sortDocumentAfterClassName();
     };
 
+    function saveTemperature(time: string) {
+        return (event: Event, value: number | number[]) => {
+            const newSchedule = bed.schedule;
+            newSchedule[time] = Array.isArray(value) ? value[0] : value;
+            bed.schedule = newSchedule;
+            bedManager.addEntryToScheduleFromId(bed.id, time, Array.isArray(value) ? value[0] : value);
+            console.log(bed.schedule);
+        }
+    }
     function createSliderFromTime(time:string, i:number): JSX.Element {
         return (
         <div className={"slide-container "+time}>
@@ -70,6 +79,7 @@ const BedDetails = () => {
             max={28}
             orientation='vertical'
             style={{ WebkitAppearance: 'slider-vertical' }}
+            onChange={saveTemperature(Array.from(times)[i])}
             />
 
             <input className='slider-label' type="time" defaultValue={Array.from(times)[i]} onChange={(e)=>{
