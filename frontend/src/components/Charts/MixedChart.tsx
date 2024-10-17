@@ -31,7 +31,6 @@ interface MixedChartProps {
 function MixedChart({ chartData }: MixedChartProps) {
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center" }}>Mixed Bar and Line Chart</h2>
       <Chart
         type="bar" // This is the base chart type
         data={chartData}

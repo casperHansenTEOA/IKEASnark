@@ -5,6 +5,7 @@ import Chart from "chart.js/auto";
 import LineChart from "../components/Charts/LineChart";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
+import MixedChart from "../components/Charts/MixedChart";
 
 // import MixedChart from "../components/Charts/MixedChart";
 
@@ -97,12 +98,6 @@ function Stats() {
     ],
     datasets: [
       {
-        type: "bar",
-        label: "Average temperature",
-        data: [18, 27, 5, 2, 18, 20, 9],
-        backgroundColor: rootStyles.getPropertyValue("--bar-color").trim(),
-      },
-      {
         type: "line",
         label: "Time in bed",
         data: [6, 10, 8, 3, 7, 5, 9],
@@ -112,6 +107,12 @@ function Stats() {
         borderWidth: 1,
         tension: 0.4, // For Line chart smoothing
         fill: false, // For Line chart fill
+      },
+      {
+        type: "bar",
+        label: "Average temperature",
+        data: [18, 27, 5, 2, 18, 20, 9],
+        backgroundColor: rootStyles.getPropertyValue("--bar-color").trim(),
       },
     ],
   };
@@ -140,7 +141,7 @@ function Stats() {
         </Card>
         <Card>
           {"Time in bed and Temperature"}
-          <LineChart chartData={chartData3} />
+          <MixedChart chartData={chartData3} />
         </Card>
       </div>
     </div>
