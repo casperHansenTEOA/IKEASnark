@@ -62,6 +62,7 @@ const BedDetails = () => {
             bed.schedule = newSchedule;
             bedManager.addEntryToScheduleFromId(bed.id, time, Array.isArray(value) ? value[0] : value);
             console.log(bed.schedule);
+            console.log(event);
         }
     }
     function createSliderFromTime(time:string, i:number): JSX.Element {
