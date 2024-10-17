@@ -3,9 +3,9 @@ import Bed from "../types/Bed";
 async function fetchBeds(): Promise<Bed[]> {
   console.log("fetching beds");
   return [
-    { id: 1, temperature: 20 },
-    { id: 2, temperature: 22 },
-    { id: 3, temperature: 21 },
+    { id: 1, temperature: 20, schedule:{"":0} },
+    { id: 2, temperature: 22,schedule:{"01:22": 20 , "02:40":18} },
+    { id: 3, temperature: 21, schedule:{"01:22": 20} },
   ];
 }
 

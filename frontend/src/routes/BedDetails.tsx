@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState, useEffect} from 'react';
 import Bed from '../types/Bed';
 import './BedDetails.css';
 import { useLocation } from 'react-router-dom';
@@ -20,6 +20,14 @@ const BedDetails = () => {
     // const [sliders, setSliders] = useState<JSX.Element[]>([]);
     const [times, setTimes] = useState<string[]>([]);
 
+    useEffect(() => {
+        //write all the keys of the schedule object to the times array
+        console.log(bed.schedule);
+        setTimes(Object.keys(bed.schedule));
+    }, []);
+
+
+
 
     const handleTemperatureChange = (delta: number) => {
         setTemperature(prevTemp => prevTemp + delta);
@@ -29,12 +37,13 @@ const BedDetails = () => {
 
     async function  addSchedule(nt: string) { 
      
-
-
-        const  internalTimes = [...times, nt].sort();
         // times.sort();
         console.log(nt)
-        await setTimes([...times,nt]);
+        if (times.length < 6) {
+            await setTimes([...times,nt]);
+        }else{
+            alert('Max 6 schedules allowed');
+        }
         console.log(times)
         // setSliders([]);
         // setSliders(slidersInit(internalTimes));  
@@ -43,50 +52,6 @@ const BedDetails = () => {
 
         sortDocumentAfterClassName();
     };
-
-
-
-    // function slidersInit(t: string[]) {
-    //     const slidersTemp = []
-
-
-        
-    //     for (let i = 0; i < t.length; i++) {
-      
-    //         slidersTemp.push(
-    //             <div className="slide-container">
-    //                 <Slider
-    //                     aria-label="Temperature"
-    //                     defaultValue={0}
-    //                     getAriaValueText={(value) => `${value}°C`}
-    //                     valueLabelDisplay="auto"
-    //                     shiftStep={30}
-    //                     step={1}
-    //                     marks
-    //                     min={16}
-    //                     max={28}
-    //                     orientation='vertical'
-    //                     style={{ WebkitAppearance: 'slider-vertical' }}
-    //                     />
-  
-    //                             <input className='slider-label' type="time" defaultValue={t[i]} onChange={(e)=>{
-    //                                     t[i] = e.target.value;
-    //                                     // setTimes(times);
-    //                                     console.log(times);
-    //                                 }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))"/>
-                        
-                        
-
-    //             </div>
-                
-        
-            
-    //         );
-          
-    //     }
-    //     // setSliders(slidersTemp)
-    //     return slidersTemp;
-    // }
 
     function createSliderFromTime(time:string, i:number): JSX.Element {
         return (
@@ -129,7 +94,7 @@ const BedDetails = () => {
             <h1>Bed Temperature Control</h1>
             <div>
                 <label>
-                    WantedTemperature:
+                    Wanted Current Temperature:
                     <button onClick={() => handleTemperatureChange(-1)}>-</button>
                     <span>{temperature}°C</span>
                     <button onClick={() => handleTemperatureChange(1)}>+</button>
@@ -160,6 +125,7 @@ const BedDetails = () => {
 
 export default BedDetails;
 
+//ugly fucking solution for sorting elements in the dom tree based on their second class
 function sortDocumentAfterClassName() {
     const list = document.querySelectorAll('.schedule-sliders')[0];
 

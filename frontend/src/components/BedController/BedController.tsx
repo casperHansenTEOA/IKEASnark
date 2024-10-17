@@ -24,18 +24,18 @@ const BedController = ({ bed }: Props) => {
   // const [currentTemp, setTemp] = useState(bed.temperature);
 
 
-  function decreaseTemperature() {
-    setWantedTemperature(bed.temperature - 1);
+  // function decreaseTemperature() {
+  //   setWantedTemperature(bed.temperature - 1);
 
-    bed.temperature= currentWantedTemp;
-  }
+  //   bed.temperature= currentWantedTemp;
+  // }
 
-  function increaseTemperature() {
-    setWantedTemperature(bed.temperature + 1);
-    bed.temperature= currentWantedTemp;
+  // function increaseTemperature() {
+  //   setWantedTemperature(bed.temperature + 1);
+  //   bed.temperature= currentWantedTemp;
 
-    //TODO bed api call to actually change the temperature
-  }
+  //   //TODO bed api call to actually change the temperature
+  // }
   
   return (
     <SquareCard >
