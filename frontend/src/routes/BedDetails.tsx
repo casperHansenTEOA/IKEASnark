@@ -4,6 +4,7 @@ import './BedDetails.css';
 import { useLocation } from 'react-router-dom';
 import { Slider } from '@mui/material';
 import { bedManager } from '../handlers/BedHandler';
+// import { set } from 'rsuite/esm/internals/utils/date';
 // interface Schedule {
 //     time: string;
 //     temperature: number;
@@ -84,14 +85,23 @@ const BedDetails = () => {
             onChange={saveTemperature(Array.from(times)[i])}
             />
 
-            <input className='slider-label' type="time" defaultValue={Array.from(times)[i]} onChange={(e)=>{
+            <input className='slider-label' type="time" defaultValue={Array.from(times)[i]} onChange={async (e)=>{
                     const timesArray = Array.from(times);
                     timesArray[i] = e.target.value;
-                    setTimes(new Set(timesArray));
-                    document.querySelectorAll('.schedule-sliders')[0].children[i].classList.remove(time);
+                    console.log(timesArray);
+
+                    // change the key of the schedule object to the new time by removng the old entry
+                    const tempTemperature = bed.schedule[Array.from(times)[i]];
+                    delete bed.schedule[Array.from(times)[i]];
+                    bed.schedule[e.target.value] = tempTemperature;
+
+
+                    await setTimes(new Set([]));
+                    await setTimes(new Set(timesArray));
+                    // document.querySelectorAll('.schedule-sliders')[0].children[i].classList.remove(time);
                     document.querySelectorAll('.schedule-sliders')[0].children[i].classList.add( e.target.value);
                     
-                    setTimes(times);
+                    // await setTimes(times);
                     console.log(times);
                     sortDocumentAfterClassName();
                 }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))"/>
