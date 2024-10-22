@@ -9,29 +9,19 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa6";
 import BedController from "../components/BedController/BedController";
-import LightController from "../components/LightController/LightController";
 import Bed from "../types/Bed";
-import Light from "../types/Light";
 import { useEffect, useState } from "react";
 
 import { bedManager } from "../handlers/BedHandler";
-import { lightManager } from "../handlers/LightHandler";
-
 
 function Root() {
   const [beds, setBeds] = useState<Bed[]>([]);
-  const [lights, setLights] = useState<Light[]>([]);
 
   useEffect(() => {
     const fetchAllBeds = async () => {
       setBeds(bedManager.getConnectedBeds());
     };
     fetchAllBeds();
-
-    const fetchAllLights = async () => {
-      setLights(lightManager.getConnectedLights());
-    };
-    fetchAllLights();
   }, []);
 
   return (
@@ -63,12 +53,7 @@ function Root() {
         {beds.map((bed) => (
           <BedController key={bed.id} bed={bed} />
         ))}
-
-        {lights.map((light) => (
-          <LightController key={light.id} Light={light} />
-        ))}
       </div>
-      
 
       <Card>
         <FaPlus

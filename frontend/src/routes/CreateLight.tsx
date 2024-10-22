@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 // import { IoIosArrowDown } from "react-icons/io";
 // import Card from "../components/Card/Card";
-import "./CreateLightAndBed.css";
+import "./CreateDevice.css";
 import { useEffect, useState } from "react";
 
 import { lightManager, fetchLights } from "../handlers/LightHandler";
@@ -14,16 +14,14 @@ const CreateLight: React.FC = () => {
   // const [lightName, setLightName] = useState('');
   // const [bedId, setBedId] = useState('');
 
-
   const nav = document.getElementById("footer");
   if (nav) {
     nav.classList.add("hidden");
   }
 
-
-  const [listOfConnectableLights, setListOfConnectableLights] = useState<React.ReactNode[]>([]);
-
-  
+  const [listOfConnectableLights, setListOfConnectableLights] = useState<
+    React.ReactNode[]
+  >([]);
 
   useEffect(() => {
     const fetchLights = async () => {
@@ -42,7 +40,6 @@ const CreateLight: React.FC = () => {
   );
 };
 
-
 export default CreateLight;
 
 async function getNonConnectedLights() {
@@ -51,11 +48,11 @@ async function getNonConnectedLights() {
   const avalibleLightIds = avalibleLights.map((light) => light.id);
   const connectedLights = lightManager.getConnectedLights();
   const connectedLightIds = connectedLights.map((light) => light.id);
-  const nonConnectedLightIds =  avalibleLightIds.filter(
+  const nonConnectedLightIds = avalibleLightIds.filter(
     (lightId) => !connectedLightIds.includes(lightId)
   );
 
-  return nonConnectedLightIds.map((lightId) => <LightCreationCard key={lightId} n={lightId} />);
+  return nonConnectedLightIds.map((lightId) => (
+    <LightCreationCard key={lightId} n={lightId} />
+  ));
 }
-
-
