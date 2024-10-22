@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Bed from "../types/Bed";
 import "./BedDetails.css";
@@ -9,13 +10,9 @@ import Card from "../components/Card/Card";
 import Sensor from "../types/Sensor";
 import SensorController from "../components/SensorController/SensorController";
 import { FaPlus } from "react-icons/fa";
-// import { set } from 'rsuite/esm/internals/utils/date';
-// interface Schedule {
-//     time: string;
-//     temperature: number;
-// }
 
 const BedDetails = () => {
+
   const location = useLocation();
   const bed: Bed = location.state.bed;
   const sensors: Sensor[] = sensorManager.getConnectedSensors();
@@ -156,6 +153,7 @@ const BedDetails = () => {
               Add
             </button>
           </div>
+
         </div>
       </Card>
 
