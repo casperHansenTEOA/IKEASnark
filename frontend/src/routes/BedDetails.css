@@ -30,6 +30,29 @@
     align-items: center;
 }
 
+.css-a92frd-MuiSlider-root{
+    color: #f3d8bd !important;
+}
+
+@media (prefers-color-scheme: light) {
+    .css-a92frd-MuiSlider-root{
+        color: #384db8 !important;
+        
+    }
+
+    .temp-controller button {
+        background-color: #c6c6c6 !important;
+
+        
+    }
+
+    .time-addition-box button{
+        background-color:  #c6c6c6 !important;
+    }
+    .slider-label{
+        color: #000000 !important;
+    }
+}
 .slider-label::-webkit-calendar-picker-indicator {
 
     display: none;
@@ -44,6 +67,7 @@
 
 .temp-controller button {
     width : 20vw;
+    height: width;
     font-size: 3em;
     padding:0;
     text-align: center;
@@ -81,4 +105,9 @@ form{
 
 .time-addition-box button{
     color: #ffffff;
+}
+
+.bed-detail-page .card{
+    background-color: #00000001;
+    border: none;
 }
