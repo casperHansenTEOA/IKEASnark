@@ -104,7 +104,7 @@ function navigateToHome(navigate: NavigateFunction) {
   console.log("Home");
   document.querySelectorAll(".nav-footer")[0].classList.toggle("hidden");
 
-  navigate("/");
+  navigate(-1);
 }
 
 export default SensorCreationCard;

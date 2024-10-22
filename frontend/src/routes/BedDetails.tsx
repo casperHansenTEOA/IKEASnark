@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Bed from "../types/Bed";
 import "./BedDetails.css";
@@ -12,7 +11,6 @@ import SensorController from "../components/SensorController/SensorController";
 import { FaPlus } from "react-icons/fa";
 
 const BedDetails = () => {
-
   const location = useLocation();
   const bed: Bed = location.state.bed;
   const sensors: Sensor[] = sensorManager.getConnectedSensors();
@@ -27,7 +25,7 @@ const BedDetails = () => {
     //write all the keys of the schedule object to the times array
     console.log(bed.schedule);
     setTimes(new Set(Object.keys(bed.schedule)));
-  }, []);
+  }, [bed.schedule]);
 
   const handleTemperatureChange = (delta: number) => {
     //save temps to the controller here as well
@@ -153,7 +151,6 @@ const BedDetails = () => {
               Add
             </button>
           </div>
-
         </div>
       </Card>
 
