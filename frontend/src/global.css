@@ -19,6 +19,8 @@ body {
     margin-bottom: 10vh;
 }
 
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -35,6 +37,7 @@ body {
   }
   button {
     background-color: #f9f9f9;
+    color: #000000 !important;
   }
 }
 

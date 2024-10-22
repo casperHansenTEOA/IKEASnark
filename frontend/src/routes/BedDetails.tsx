@@ -1,9 +1,10 @@
-import  { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Bed from '../types/Bed';
 import './BedDetails.css';
 import { useLocation } from 'react-router-dom';
 import { Slider } from '@mui/material';
 import { bedManager } from '../handlers/BedHandler';
+import Card from '../components/Card/Card';
 // import { set } from 'rsuite/esm/internals/utils/date';
 // interface Schedule {
 //     time: string;
@@ -13,7 +14,7 @@ import { bedManager } from '../handlers/BedHandler';
 
 const BedDetails = () => {
     const location = useLocation();
-    const bed : Bed = location.state.bed;
+    const bed: Bed = location.state.bed;
     const [temperature, setTemperature] = useState<number>(bed.temperature);
 
     const [newTime, setNewTime] = useState<string>('');
@@ -37,21 +38,21 @@ const BedDetails = () => {
     };
 
 
-    async function  addSchedule(nt: string) { 
-     
+    async function addSchedule(nt: string) {
+
         // times.sort();
         console.log(nt)
-        if (times.size< 6) {
-            await setTimes(new Set([...times.values(),nt]));
+        if (times.size < 6) {
+            await setTimes(new Set([...times.values(), nt]));
             bedManager.addEntryToScheduleFromId(bed.id, nt, 0);
-        }else{
+        } else {
             alert('Max 6 schedules allowed');
         }
         console.log(times)
         // setSliders([]);
         // setSliders(slidersInit(internalTimes));  
 
-        
+
 
         sortDocumentAfterClassName();
     };
@@ -66,26 +67,26 @@ const BedDetails = () => {
             console.log(event);
         }
     }
-    function createSliderFromTime(time:string, i:number): JSX.Element {
+    function createSliderFromTime(time: string, i: number): JSX.Element {
         const defvalue = bed.schedule[Array.from(times)[i]];
         return (
-        <div className={"slide-container "+time}>
-        <Slider
-            aria-label="Temperature"
-            defaultValue={defvalue}
-            getAriaValueText={(value) => `${value}°C`}
-            valueLabelDisplay="auto"
-            shiftStep={30}
-            step={1}
-            marks
-            min={16}
-            max={28}
-            orientation='vertical'
-            style={{ WebkitAppearance: 'slider-vertical' }}
-            onChange={saveTemperature(Array.from(times)[i])}
-            />
+            <div className={"slide-container " + time}>
+                <Slider
+                    aria-label="Temperature"
+                    defaultValue={defvalue}
+                    getAriaValueText={(value) => `${value}°C`}
+                    valueLabelDisplay="auto"
+                    shiftStep={30}
+                    step={1}
+                    marks
+                    min={16}
+                    max={28}
+                    orientation='vertical'
+                    style={{ WebkitAppearance: 'slider-vertical' }}
+                    onChange={saveTemperature(Array.from(times)[i])}
+                />
 
-            <input className='slider-label' type="time" defaultValue={Array.from(times)[i]} onChange={async (e)=>{
+                <input className='slider-label' type="time" defaultValue={Array.from(times)[i]} onChange={async (e) => {
                     const timesArray = Array.from(times);
                     timesArray[i] = e.target.value;
                     console.log(timesArray);
@@ -99,16 +100,16 @@ const BedDetails = () => {
                     await setTimes(new Set([]));
                     await setTimes(new Set(timesArray));
                     // document.querySelectorAll('.schedule-sliders')[0].children[i].classList.remove(time);
-                    document.querySelectorAll('.schedule-sliders')[0].children[i].classList.add( e.target.value);
-                    
+                    document.querySelectorAll('.schedule-sliders')[0].children[i].classList.add(e.target.value);
+
                     // await setTimes(times);
                     console.log(times);
                     sortDocumentAfterClassName();
-                }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))"/>
-            
-            
+                }} pattern="(([0-1][0-9]|2[0-4]):([0-5][0-9]|60))" />
 
-    </div>
+
+
+            </div>
         )
     }
 
@@ -116,35 +117,50 @@ const BedDetails = () => {
 
 
     return (
-        <div>
-            <h1>Bed Temperature Control</h1>
-            <div>
-                <label>
-                    Wanted Current Temperature:
+        <div className="wrapper bed-detail-page">
+            <h1>Bed {bed.id}</h1>
+
+            <Card>
+
+                <div className='horizontal temp-controller'>
+
                     <button onClick={() => handleTemperatureChange(-1)}>-</button>
-                    <span>{temperature}°C</span>
+                    <h1>{temperature}°C</h1>
                     <button onClick={() => handleTemperatureChange(1)}>+</button>
-                </label>
-            </div>
-            <h2>Schedule</h2>
-            <div>
-                <form action="">
-                    Time:
-                    <input
-                        type="time"
-                        value={newTime}
-                        onChange={(e)=> setNewTime(e.target.value)}
-                    />
-               
-                </form>
-                <button onClick={() => {addSchedule(newTime)}}>Add</button>
-        
-               <div className="schedule-sliders">
-         
-                {Array.from(times).map((time, index) => {return createSliderFromTime(time, index)})}
-                    
-            </div>
-            </div>
+
+                </div>
+            </Card>
+
+
+            <Card>
+
+                <div>
+
+
+
+                    <div className="schedule-sliders">
+
+                        {Array.from(times).map((time, index) => { return createSliderFromTime(time, index) })}
+
+                    </div>
+                    <div className='time-addition-box'>
+                   
+                        <form action="">
+
+                            <input
+                                type="time"
+                                value={newTime}
+                                onChange={(e) => setNewTime(e.target.value)}
+                                className='time-input'
+                            />
+
+                        </form>
+                        <button onClick={() => { addSchedule(newTime) }}>Add</button>
+                    </div>
+
+                </div>
+            </Card>
+
         </div>
     );
 };
