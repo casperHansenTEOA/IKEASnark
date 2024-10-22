@@ -11,6 +11,7 @@ import NavFooter from "./components/NavFooter/NavFooter";
 import Profile from "./routes/Profile";
 import Manual from "./routes/Manual";
 import CreateLight from "./routes/CreateLight";
+import CreateSensor from "./routes/CreateSensor";
 import CreateBed from "./routes/CreateBed";
 import BraKnapp from "./routes/BraKnapp";
 import BedDetails from "./routes/BedDetails";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         element: <CreateLight />,
       },
       {
+        path: "/createSensor",
+        element: <CreateSensor />,
+      },
+      {
         path: "/createBed",
         element: <CreateBed />,
       },
@@ -62,7 +67,6 @@ const router = createBrowserRouter([
       {
         path: "/beddetails",
         element: <BedDetails />,
-
       },
     ],
   },

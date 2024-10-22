@@ -2,10 +2,10 @@
 
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import Card from "../components/Card/Card";
-import "./CreateLightAndBed.css";
+import "./CreateDevice.css";
 import { useEffect, useState } from "react";
 
-import {fetchBeds} from "../handlers/BedHandler";
+import { fetchBeds } from "../handlers/BedHandler";
 
 import { bedManager } from "../handlers/BedHandler";
 
@@ -18,7 +18,9 @@ const CreateBed: React.FC = () => {
   if (nav) {
     nav.classList.add("hidden");
   }
-  const [listOfAvalibleBeds, setListOfDummyBeds] = useState<React.ReactNode[]>([]);
+  const [listOfAvalibleBeds, setListOfDummyBeds] = useState<React.ReactNode[]>(
+    []
+  );
 
   useEffect(() => {
     const fetchAvalibleBeds = async () => {
@@ -64,16 +66,16 @@ function dummyBed(n: number, navigate: NavigateFunction) {
 export default CreateBed;
 
 async function getAvalibleBeds(navigate: NavigateFunction) {
-  const connectedBeds =  bedManager.getConnectedBeds();
-  
-   const allBeds = await fetchBeds();
+  const connectedBeds = bedManager.getConnectedBeds();
 
-    const allBedIds = allBeds.map((bed) => bed.id);
-    const connectedBedIds = connectedBeds.map((bed) => bed.id);
+  const allBeds = await fetchBeds();
 
-    const unconnectedBedIds = allBedIds.filter(
-      (bedId) => !connectedBedIds.includes(bedId)
-    );
+  const allBedIds = allBeds.map((bed) => bed.id);
+  const connectedBedIds = connectedBeds.map((bed) => bed.id);
+
+  const unconnectedBedIds = allBedIds.filter(
+    (bedId) => !connectedBedIds.includes(bedId)
+  );
 
   return unconnectedBedIds.map((n) => dummyBed(n, navigate));
 }

@@ -14,6 +14,12 @@ const AddNewDevice: React.FC = () => {
           </Card>
         </NavLink>
 
+        <NavLink to="/createSensor" onClick={hideNavBar}>
+          <Card>
+            <h3>Add a sensor</h3>
+          </Card>
+        </NavLink>
+
         <NavLink to="/createBed">
           <Card>
             <h3>Add a bed</h3>
