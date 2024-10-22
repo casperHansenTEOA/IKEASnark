@@ -117,7 +117,7 @@ const BedDetails = () => {
 
 
     return (
-        <div className="wrapper">
+        <div className="wrapper bed-detail-page">
             <h1>Bed {bed.id}</h1>
 
             <Card>
