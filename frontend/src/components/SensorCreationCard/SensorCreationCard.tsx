@@ -66,7 +66,7 @@ function SensorCreationCard({ n }: Props) {
               //TODO send data to backend
               // Handle form submission logic here
             }}
-            className="sensor-form "
+            className="light-form "
           >
             <label htmlFor={`bed-select-${n}`}>Select Bed:</label>
             <select
