@@ -9,37 +9,19 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa6";
 import BedController from "../components/BedController/BedController";
-import LightController from "../components/LightController/LightController";
-import SensorController from "../components/SensorController/SensorController";
 import Bed from "../types/Bed";
-import Light from "../types/Light";
-import Sensor from "../types/Sensor";
 import { useEffect, useState } from "react";
 
 import { bedManager } from "../handlers/BedHandler";
-import { lightManager } from "../handlers/LightHandler";
-import { sensorManager } from "../handlers/SensorHandler";
 
 function Root() {
   const [beds, setBeds] = useState<Bed[]>([]);
-  const [lights, setLights] = useState<Light[]>([]);
-  const [sensors, setSensors] = useState<Sensor[]>([]);
 
   useEffect(() => {
     const fetchAllBeds = async () => {
       setBeds(bedManager.getConnectedBeds());
     };
     fetchAllBeds();
-
-    const fetchAllLights = async () => {
-      setLights(lightManager.getConnectedLights());
-    };
-    fetchAllLights();
-
-    const fetchAllSensors = async () => {
-      setSensors(sensorManager.getConnectedSensors());
-    };
-    fetchAllSensors();
   }, []);
 
   return (
@@ -70,14 +52,6 @@ function Root() {
       <div className="itemsWrapper">
         {beds.map((bed) => (
           <BedController key={bed.id} bed={bed} />
-        ))}
-
-        {lights.map((light) => (
-          <LightController key={light.id} Light={light} />
-        ))}
-
-        {sensors.map((sensor) => (
-          <SensorController key={sensor.id} Sensor={sensor} />
         ))}
       </div>
 

@@ -8,17 +8,17 @@ const AddNewDevice: React.FC = () => {
     <div className="settings-overlay hidden">
       <div className="settings-content">
         <h2>Add a new device</h2>
-        <NavLink to="/createLight" onClick={hideNavBar}>
+        {/* <NavLink to="/createLight" onClick={hideNavBar}>
           <Card>
             <h3>Add a light</h3>
           </Card>
-        </NavLink>
+        </NavLink> */}
 
-        <NavLink to="/createSensor" onClick={hideNavBar}>
+        {/* <NavLink to="/createSensor" onClick={hideNavBar}>
           <Card>
             <h3>Add a sensor</h3>
           </Card>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink to="/createBed">
           <Card>
@@ -30,9 +30,9 @@ const AddNewDevice: React.FC = () => {
   );
 };
 
-function hideNavBar() {
-  const nav = document.querySelectorAll(".nav-footer")[0];
-  nav.classList.toggle("hidden");
-}
+// function hideNavBar() {
+//   const nav = document.querySelectorAll(".nav-footer")[0];
+//   nav.classList.toggle("hidden");
+// }
 
 export default AddNewDevice;
