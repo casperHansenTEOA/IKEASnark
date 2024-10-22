@@ -3,8 +3,6 @@ import Sensor from "../../types/Sensor";
 
 import { sensorManager } from "../../handlers/SensorHandler";
 
-import { RgbaColorPicker, RgbaColor } from "react-colorful";
-
 import "./SensorController.css";
 import { IoIosArrowDown } from "react-icons/io";
 import SquareCard from "../Card/SquareCard";
