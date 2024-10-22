@@ -71,7 +71,11 @@
     font-size: 3em;
     padding:0;
     text-align: center;
+    display: flex;
+    padding-top: 1.2vh;
+    justify-content: center;
     color: #ffffff;
+
     
 }
 
