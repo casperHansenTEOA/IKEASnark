@@ -5,7 +5,7 @@ import Chart from "chart.js/auto";
 import LineChart from "../components/Charts/LineChart";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
-import MixedChart from "../components/Charts/MixedChart";
+// import MixedChart from "../components/Charts/MixedChart";
 
 // import MixedChart from "../components/Charts/MixedChart";
 
@@ -48,6 +48,7 @@ function Stats() {
       "Saturday",
       "Sunday",
     ],
+
     datasets: [
       {
         label: "Hours slept", //
@@ -86,36 +87,28 @@ function Stats() {
     ],
   });
 
-  const chartData3 = {
-    labels: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    datasets: [
-      {
-        type: "line",
-        label: "Time in bed",
-        data: [6, 10, 8, 3, 7, 5, 9],
-        pointBorderColor: rootStyles.getPropertyValue("--point-color").trim(), //Color of pointsborder
-        backgroundColor: rootStyles.getPropertyValue("--point-color").trim(), //Infill of points
-        borderColor: rootStyles.getPropertyValue("--line-color").trim(), // Line color
-        borderWidth: 1,
-        tension: 0.4, // For Line chart smoothing
-        fill: false, // For Line chart fill
-      },
-      {
-        type: "bar",
-        label: "Average temperature",
-        data: [18, 27, 5, 2, 18, 20, 9],
-        backgroundColor: rootStyles.getPropertyValue("--bar-color").trim(),
-      },
-    ],
-  };
+  // const chartData3 = {
+  //   labels: ["w. 44", "w. 45", "w. 46", "w. 47", "w. 48", "w. 49", "w. 50"],
+  //   datasets: [
+  //     {
+  //       type: "line",
+  //       label: "TiB",
+  //       data: [6, 10, 8, 3, 7, 5, 9],
+  //       pointBorderColor: rootStyles.getPropertyValue("--point-color").trim(), //Color of pointsborder
+  //       backgroundColor: rootStyles.getPropertyValue("--point-color").trim(), //Infill of points
+  //       borderColor: rootStyles.getPropertyValue("--line-color").trim(), // Line color
+  //       borderWidth: 1,
+  //       tension: 0.4, // For Line chart smoothing
+  //       fill: false, // For Line chart fill
+  //     },
+  //     {
+  //       type: "bar",
+  //       label: "Avg. Temp",
+  //       data: [18, 27, 5, 2, 18, 20, 9],
+  //       backgroundColor: rootStyles.getPropertyValue("--bar-color").trim(),
+  //     },
+  //   ],
+  // };
   return (
     <div className="wrapper">
       <div className="horizontal-buttons">
@@ -139,10 +132,10 @@ function Stats() {
           {"Asleep after"}
           <LineChart chartData={chartData2} />
         </Card>
-        <Card>
+        {/* <Card>
           {"Time in bed and Temperature"}
           <MixedChart chartData={chartData3} />
-        </Card>
+        </Card> */}
       </div>
     </div>
   );

@@ -22,7 +22,9 @@ function LineChart({ chartData }: LineChartProps) {
               display: false,
             },
             legend: {
-              display: false,
+              labels: {
+                // color: "red",
+              },
             },
           },
         }}

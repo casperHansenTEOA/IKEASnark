@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 interface MixedChartProps {
-  chartData: ChartData<"bar" | "line", (number | [number, number])[], string>;
+  chartData: ChartData<"bar" | "line", (number | [number, number])[], string>[];
 }
 
 function MixedChart({ chartData }: MixedChartProps) {
@@ -41,18 +41,7 @@ function MixedChart({ chartData }: MixedChartProps) {
               display: true,
               position: "top",
             },
-            title: {
-              display: true,
-              text: "Mixed Bar and Line Chart",
-            },
-          },
-          scales: {
-            x: {
-              beginAtZero: true,
-            },
-            y: {
-              beginAtZero: true,
-            },
+            title: {},
           },
         }}
       />
