@@ -33,7 +33,7 @@ function MixedChart({ chartData }: MixedChartProps) {
     <div className="chart-container">
       <Chart
         type="bar" // This is the base chart type
-        data={chartData}
+        data={chartData[0]}
         options={{
           responsive: true,
           plugins: {
