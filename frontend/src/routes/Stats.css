@@ -1,3 +1,10 @@
+:root{
+    --point-color: #B9D8E2;
+    --line-color: #B9D8E2;
+    --bar-color: #6193A4;
+} 
+/* This is dark mode  */
+
 .horizontal-buttons{
     width: auto;
     place-content: center;
@@ -12,3 +19,26 @@
     margin: 0 auto;
     width: 85%;
 }
+
+@media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      --card-bg: #e3ecef;
+      --text-color: #000000;
+
+      --point-color: #7851A9;
+      --line-color: #FF6F61;
+      --bar-color: #008080;
+    }
+    body {
+      background: none;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+    
+  }
